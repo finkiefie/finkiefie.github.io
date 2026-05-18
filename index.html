@@ -1,0 +1,1627 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>퍼슈트 커넥트 — 당신의 캐릭터에게 우편을 띄우고 싶습니다</title>
+<meta name="description" content="퍼리/퍼슈터 팬덤을 위한 스티커 수집·교환·SNS 공유 모바일 앱 '퍼슈트 커넥트'. 모든 작가가 동등 확률로 등장하는 공동 풀, 베타 창작자 초대." />
+
+<!-- Open Graph / Social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="퍼슈트 커넥트" />
+<meta property="og:title" content="퍼슈트 커넥트 — 베타 창작자 초대장" />
+<meta property="og:description" content="한국 퍼리·퍼슈트 팬덤을 위한 작은 우체국. 스티커를 모으고, 주고받고, 일기장에 붙이고, SNS로 흘려보내는 곳." />
+<meta property="og:url" content="https://finkiefie.github.io/" />
+<meta property="og:image" content="https://finkiefie.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 봉투와 도장 미감" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:locale:alternate" content="en_US" />
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="퍼슈트 커넥트 — 베타 창작자 초대장" />
+<meta name="twitter:description" content="한국 퍼리·퍼슈트 팬덤을 위한 작은 우체국. 스티커를 모으고, 주고받고, 일기장에 붙이고, SNS로 흘려보내는 곳." />
+<meta name="twitter:image" content="https://finkiefie.github.io/og-image.png" />
+<meta name="twitter:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 봉투와 도장 미감" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f4ecdc;
+    --paper-deep: #ebdfc4;
+    --ink: #2a1d12;
+    --ink-soft: #4f3a25;
+    --seal: #b1322a;
+    --seal-deep: #8a1f17;
+    --stamp: #2f5d4f;
+    --gold: #b88542;
+    --washi: #c9a26b;
+    --shadow: rgba(58, 38, 18, .18);
+    --grid-line: rgba(80, 50, 20, .08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,.45), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(140,90,40,.08), transparent 50%),
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 28px);
+    color: var(--ink);
+    font-family: "Gowun Batang", "Noto Sans KR", serif;
+    line-height: 1.75;
+    letter-spacing: .01em;
+    overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.2  0 0 0 0 0.13  0 0 0 0 0.07  0 0 0 .06 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+    pointer-events: none;
+    opacity: .55;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+  main { position: relative; z-index: 2; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: "Gowun Batang", serif; color: var(--ink); letter-spacing: -.01em; }
+  h1 { font-size: clamp(34px, 5.4vw, 64px); line-height: 1.2; margin: 0 0 16px; }
+  h2 { font-size: clamp(26px, 3.4vw, 40px); margin: 0 0 18px; }
+  h3 { font-size: clamp(18px, 2vw, 22px); margin: 0 0 8px; }
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  .hand { font-family: "Gaegu", cursive; }
+  .small { font-size: 14px; color: var(--ink-soft); }
+  .tag {
+    display: inline-block;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 11px; letter-spacing: .25em;
+    padding: 6px 12px;
+    border: 1px solid var(--ink); color: var(--ink);
+    background: rgba(255,255,255,.4);
+    text-transform: uppercase;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+  .stamp-corner {
+    position: absolute; top: 28px; right: 28px;
+    width: 130px; height: 150px;
+    transform: rotate(8deg);
+    z-index: 3;
+  }
+  @media (max-width: 720px) { .stamp-corner { width: 92px; height: 108px; top: 18px; right: 18px; } }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .hero .lead {
+    font-family: "Gowun Batang", serif;
+    font-size: clamp(17px, 1.6vw, 19px);
+    line-height: 1.9;
+    color: var(--ink);
+    max-width: 520px;
+  }
+  .hero .lead em {
+    font-style: normal;
+    background: linear-gradient(transparent 62%, rgba(177, 50, 42, .25) 62% 92%, transparent 92%);
+    padding: 0 2px;
+  }
+  .pre-title {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 12px; letter-spacing: .4em;
+    color: var(--seal);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .pre-title::before {
+    content: ""; display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--seal); vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  /* === ENVELOPE === */
+  .envelope {
+    position: relative;
+    background: #f7efde;
+    border: 1px solid rgba(80,50,20,.25);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.6) inset,
+      0 18px 40px var(--shadow),
+      0 4px 10px rgba(0,0,0,.06);
+    padding: 32px 28px 28px;
+    transform: rotate(-1.2deg);
+    max-width: 420px;
+    margin-left: auto;
+  }
+  .envelope::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(135deg, transparent 0 10px, rgba(177,50,42,.5) 10px 12px, transparent 12px 22px, rgba(47,93,79,.5) 22px 24px);
+    padding: 6px;
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+            mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: .8;
+  }
+  .envelope .to {
+    font-family: "Gaegu", cursive;
+    font-size: 18px; color: var(--ink);
+    line-height: 1.5;
+  }
+  .envelope .to b { color: var(--seal); font-weight: 700; }
+  .envelope .from {
+    margin-top: 22px;
+    text-align: right;
+    font-family: "Gaegu", cursive;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .envelope .postmark {
+    position: absolute;
+    bottom: -18px; left: 24px;
+    width: 92px; height: 92px;
+    border: 2px solid var(--stamp);
+    border-radius: 50%;
+    color: var(--stamp);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 9px;
+    text-align: center;
+    transform: rotate(-12deg);
+    background: rgba(247,239,222,.7);
+    display: flex; flex-direction: column; justify-content: center;
+    line-height: 1.3;
+    opacity: .85;
+  }
+  .envelope .postmark span { font-size: 13px; letter-spacing: .1em; }
+
+  /* === SECTIONS === */
+  section { padding: 72px 0; position: relative; }
+  .section-head { text-align: center; margin-bottom: 48px; }
+  .section-head .pre-title { display: inline-block; margin-bottom: 18px; }
+  .section-head h2 { margin: 0 auto 12px; max-width: 720px; }
+  .section-head p { max-width: 640px; margin: 0 auto; }
+
+  .divider {
+    text-align: center;
+    margin: 24px 0;
+    font-size: 22px;
+    color: var(--washi);
+    letter-spacing: 1em;
+  }
+
+  /* === WHY YOU === */
+  .gift-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 760px) { .gift-grid { grid-template-columns: 1fr; } }
+  .gift {
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.18);
+    padding: 28px 26px;
+    position: relative;
+    box-shadow: 0 6px 18px var(--shadow);
+  }
+  .gift::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -14px; left: 22px;
+    background: var(--seal);
+    color: #faf3e3;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 900; font-size: 12px;
+    padding: 4px 12px;
+    letter-spacing: .15em;
+  }
+  .gift h3 { margin-bottom: 10px; color: var(--ink); }
+  .gift p { font-size: 15px; line-height: 1.75; }
+  .gift .pin {
+    position: absolute;
+    top: -10px; right: -10px;
+    width: 36px; height: 36px;
+    background: radial-gradient(circle at 35% 35%, #d65a52, #8a1f17 75%);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,.25);
+  }
+
+  /* === SEAL CIRCLE === */
+  .seal {
+    width: 124px; height: 124px;
+    border: 4px double var(--seal);
+    border-radius: 50%;
+    color: var(--seal);
+    background: rgba(177,50,42,.06);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: "Gowun Batang", serif;
+    font-weight: 700; font-size: 26px;
+    transform: rotate(-8deg);
+    box-shadow: 0 0 0 6px rgba(177,50,42,.06);
+    margin: 0 auto;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .seal small { display: block; font-size: 10px; letter-spacing: .25em; margin-top: 6px; font-weight: 700; }
+
+  /* === DIARY PAGE === */
+  .diary {
+    background: linear-gradient(to right, #efe2c4 0 28px, #faf3e3 28px);
+    background-size: 100% 100%;
+    padding: 36px 32px 36px 56px;
+    border: 1px solid rgba(80,50,20,.2);
+    box-shadow: 0 12px 30px var(--shadow);
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .diary::before {
+    content: "";
+    position: absolute; left: 36px; top: 0; bottom: 0;
+    border-left: 1px dashed rgba(177,50,42,.4);
+  }
+  .diary .date { font-family: "Gaegu", cursive; font-size: 16px; color: var(--seal); margin-bottom: 14px; }
+  .diary .card-row {
+    display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0;
+  }
+  .card-mini {
+    width: 78px; height: 110px;
+    background: #fff;
+    border: 1px solid rgba(80,50,20,.25);
+    box-shadow: 0 4px 10px var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-mini::after {
+    content: "";
+    position: absolute; inset: 6px;
+    background: linear-gradient(135deg, rgba(177,50,42,.18), rgba(47,93,79,.18));
+    border: 1px solid rgba(80,50,20,.15);
+  }
+  .card-mini .nickname {
+    position: absolute; left: 8px; bottom: 6px;
+    font-family: "Gaegu", cursive; font-size: 11px;
+    color: var(--ink);
+    z-index: 2;
+  }
+  .stamp-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--seal);
+    color: var(--seal);
+    font-family: "Gowun Batang", serif; font-weight: 700;
+    font-size: 18px;
+    background: rgba(177,50,42,.06);
+    transform: rotate(-6deg);
+  }
+  .stamp-mark.green { border-color: var(--stamp); color: var(--stamp); transform: rotate(7deg); }
+
+  /* === RITUALS === */
+  .rituals {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  @media (max-width: 880px) { .rituals { grid-template-columns: 1fr; } }
+  .ritual {
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.18);
+    padding: 28px 24px;
+    position: relative;
+    box-shadow: 0 6px 18px var(--shadow);
+  }
+  .ritual .ic {
+    width: 64px; height: 64px;
+    margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: rgba(177,50,42,.08);
+    color: var(--seal);
+    font-size: 30px;
+  }
+  .ritual h3 { font-size: 20px; margin-bottom: 4px; }
+  .ritual .ko-sub { font-family: "Gaegu", cursive; color: var(--seal); margin-bottom: 12px; display: block; }
+  .ritual ul { margin: 8px 0 0; padding-left: 18px; }
+  .ritual li { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* === TRUST === */
+  .trust-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 32px;
+    max-width: 880px; margin: 0 auto;
+  }
+  @media (max-width: 720px) { .trust-list { grid-template-columns: 1fr; } }
+  .trust-list li {
+    padding-left: 32px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .trust-list li::before {
+    content: "✓";
+    position: absolute; left: 0; top: 0;
+    width: 22px; height: 22px;
+    background: var(--stamp); color: #faf3e3;
+    border-radius: 50%;
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  /* === DELIVERABLES === */
+  .deliver {
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.2);
+    padding: 36px 32px;
+    box-shadow: 0 10px 28px var(--shadow);
+    position: relative;
+    max-width: 820px; margin: 0 auto;
+  }
+  .deliver h3 { color: var(--seal); }
+  .deliver-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  @media (max-width: 720px) { .deliver-row { grid-template-columns: 1fr; gap: 20px; } }
+  .deliver-row h4 {
+    margin: 0 0 10px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 13px;
+    letter-spacing: .25em;
+    color: var(--stamp);
+    text-transform: uppercase;
+  }
+  .deliver-row ul { margin: 0; padding-left: 18px; }
+  .deliver-row li { margin-bottom: 8px; color: var(--ink-soft); }
+
+  /* === ROADMAP === */
+  .roadmap { position: relative; max-width: 820px; margin: 0 auto; padding-left: 28px; }
+  .roadmap::before {
+    content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+    width: 2px; background: repeating-linear-gradient(to bottom, var(--washi) 0 6px, transparent 6px 12px);
+  }
+  .stop {
+    position: relative;
+    margin-bottom: 26px;
+    padding: 18px 22px;
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.18);
+    box-shadow: 0 4px 14px var(--shadow);
+  }
+  .stop::before {
+    content: ""; position: absolute; left: -28px; top: 22px;
+    width: 16px; height: 16px;
+    background: var(--seal); border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--seal);
+  }
+  .stop .when {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 11px;
+    letter-spacing: .3em;
+    color: var(--seal);
+  }
+  .stop h3 { margin: 4px 0 6px; font-size: 19px; }
+  .stop p { margin: 0; font-size: 14.5px; }
+
+  /* === CTA === */
+  .cta {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(177,50,42,.14), transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(47,93,79,.12), transparent 50%),
+      #f1e6cb;
+    border-top: 2px solid rgba(80,50,20,.2);
+    border-bottom: 2px solid rgba(80,50,20,.2);
+    padding: 88px 0;
+    text-align: center;
+  }
+  .cta .seal { margin-bottom: 28px; }
+  .cta h2 { max-width: 720px; margin: 0 auto 16px; }
+  .cta p { max-width: 580px; margin: 0 auto 32px; }
+  .btn {
+    display: inline-block;
+    padding: 18px 36px;
+    background: var(--seal);
+    color: #faf3e3;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700; font-size: 15px;
+    letter-spacing: .15em;
+    text-decoration: none;
+    border: 2px solid var(--seal-deep);
+    box-shadow: 4px 4px 0 var(--seal-deep);
+    transition: transform .1s ease, box-shadow .1s ease;
+  }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--seal-deep); }
+  .btn.outline {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    margin-left: 12px;
+  }
+  @media (max-width: 560px) { .btn.outline { margin: 12px 0 0 0; display: block; } }
+
+  /* === FAQ === */
+  details {
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.18);
+    padding: 16px 22px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  details[open] { box-shadow: 0 6px 18px var(--shadow); }
+  details summary {
+    list-style: none;
+    font-family: "Gowun Batang", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    position: relative;
+    padding-right: 32px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: "+";
+    position: absolute; right: 0; top: -2px;
+    font-size: 22px; color: var(--seal);
+    transition: transform .2s ease;
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 12px 0 0; font-size: 15px; }
+
+  footer {
+    text-align: center;
+    padding: 36px 24px 60px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  footer .stamp-mark { margin: 0 auto 16px; display: flex; }
+
+  .pullquote {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Gowun Batang", serif;
+    font-size: clamp(20px, 2.6vw, 28px);
+    line-height: 1.7;
+    color: var(--ink);
+    padding: 40px 24px;
+    border-top: 1px solid rgba(80,50,20,.15);
+    border-bottom: 1px solid rgba(80,50,20,.15);
+  }
+  .pullquote::before, .pullquote::after {
+    content: "”";
+    display: inline-block;
+    color: var(--seal);
+    font-size: 48px;
+    line-height: 0;
+    vertical-align: -10px;
+  }
+  .pullquote::before { content: "“"; margin-right: 8px; }
+  .pullquote::after { margin-left: 8px; }
+
+  /* floating envelope animation */
+  @keyframes float { 0%,100% { transform: rotate(-1.2deg) translateY(0); } 50% { transform: rotate(-1.2deg) translateY(-6px); } }
+  .envelope { animation: float 6s ease-in-out infinite; }
+
+  /* === BLUNT ANSWER === */
+  .bluntly {
+    background: #f1e6cb;
+    border-top: 2px solid rgba(80,50,20,.2);
+    border-bottom: 2px solid rgba(80,50,20,.2);
+  }
+  .bluntly .section-head h2 {
+    font-style: italic;
+  }
+  .bluntly-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) { .bluntly-grid { grid-template-columns: 1fr; } }
+  .bluntly-item {
+    background: #faf3e3;
+    padding: 22px 24px 22px 62px;
+    position: relative;
+    border-left: 4px solid var(--seal);
+    box-shadow: 0 4px 14px var(--shadow);
+  }
+  .bluntly-num {
+    position: absolute;
+    left: 18px; top: 20px;
+    font-family: "Gowun Batang", serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--seal);
+    line-height: 1;
+  }
+  .bluntly-item h3 {
+    font-size: 17px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .bluntly-item p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  /* === MEMORY ANCHOR === */
+  .memories { background: rgba(177,50,42,.04); }
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) { .memory-grid { grid-template-columns: 1fr; } }
+  .memory {
+    background: #faf3e3;
+    border: 1px solid rgba(80,50,20,.18);
+    padding: 26px 24px;
+    box-shadow: 0 4px 14px var(--shadow);
+    position: relative;
+  }
+  .memory.wide {
+    grid-column: 1 / -1;
+    background: #f1e6cb;
+    border-style: dashed;
+  }
+  .memory-tag {
+    display: inline-block;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: .22em;
+    color: var(--stamp);
+    text-transform: uppercase;
+    border: 1px solid var(--stamp);
+    padding: 4px 10px;
+    margin-bottom: 14px;
+  }
+  .memory-tag.alt { color: var(--seal); border-color: var(--seal); }
+  .memory h3 {
+    font-family: "Gowun Batang", serif;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .memory p {
+    font-size: 14.5px;
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  /* === LANG SWITCH === */
+  .lang-switch-bar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+  }
+  .lang-switch-bar.top { padding: 22px 24px 0; }
+  .lang-switch-bar.bottom {
+    padding: 28px 24px 56px;
+  }
+  .lang-switch {
+    display: inline-flex;
+    background: #faf3e3;
+    border: 1px solid rgba(80, 50, 20, 0.35);
+    padding: 3px;
+    box-shadow: 0 4px 12px var(--shadow);
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  .lang-switch button {
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 7px 14px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .lang-switch button.active {
+    background: var(--seal);
+    color: #faf3e3;
+  }
+  .lang-switch button:hover:not(.active) { color: var(--ink); }
+  @media (max-width: 720px) {
+    .lang-switch button { padding: 6px 10px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switch-bar top">
+  <nav class="lang-switch" aria-label="Language switcher">
+    <button type="button" data-lang="ko" class="active" aria-pressed="true">KO</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </nav>
+</div>
+
+<main class="lang-content" data-lang="ko">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <svg class="stamp-corner" viewBox="0 0 130 150">
+        <defs>
+          <pattern id="dots" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="3" cy="3" r="1" fill="rgba(80,50,20,.3)" />
+          </pattern>
+        </defs>
+        <rect x="6" y="6" width="118" height="138" fill="#faf3e3" stroke="rgba(80,50,20,.3)" stroke-dasharray="3 3" />
+        <rect x="14" y="14" width="102" height="100" fill="#b1322a" opacity=".15" />
+        <text x="65" y="50" text-anchor="middle" font-family="Gowun Batang, serif" font-size="14" font-weight="700" fill="#8a1f17">베타</text>
+        <text x="65" y="72" text-anchor="middle" font-family="Gowun Batang, serif" font-size="11" fill="#4f3a25">창작자 초대장</text>
+        <text x="65" y="92" text-anchor="middle" font-family="Gaegu, cursive" font-size="10" fill="#4f3a25">CLOSED · 2026</text>
+        <text x="65" y="132" text-anchor="middle" font-family="Noto Sans KR, sans-serif" font-size="9" font-weight="700" fill="#2f5d4f" letter-spacing="2">FURSUIT POST</text>
+      </svg>
+
+      <div class="hero-grid">
+        <div>
+          <div class="pre-title">퍼슈트 커넥트 · 창작자 초대장 No. 001</div>
+          <h1>당신의 캐릭터를<br/>가장 소중한 일기 페이지에<br/>붙여 두고 싶은 이들이 있습니다.</h1>
+          <p class="lead">
+            <em>퍼슈트 커넥트</em>는 한국 퍼리·퍼슈트 팬덤을 위해 만든, <b>스티커를 모으고, 주고받고, 일기장에 붙이고, SNS로 흘려보내는</b> 모바일 앱입니다.<br/><br/>
+            그 앱 안에는 작은 우체국이 하나 자리잡고 있습니다 — <em>퍼슈트 우체국</em>. 모든 스티커 교환이 이곳을 거쳐 편지처럼 오가고, 모든 결과는 한 페이지의 일기로 차곡차곡 보관되는 곳입니다. 이 편지에서 우체국이라 부르는 곳은, 앞으로 모두 그 안의 작은 세계를 가리킵니다.<br/><br/>
+            우리는 단순히 당신의 캐릭터 이미지를 "에셋"으로 쓰고 싶은 것이 아닙니다. 우리는 그 캐릭터를 한 장의 <em>스티커</em>로 만들어, <em>봉투에 봉인하고</em>, <em>도장을 찍어</em>, <em>일기장에 정성껏 붙이는 의식</em>을 설계했습니다. 누군가는 당신의 스티커를 펼친 채 한참을 들여다보며, 자신의 시그니처 도장을 천천히 눌러 찍을 것입니다.<br/><br/>
+            그 페이지 위에서 당신의 캐릭터가 어떤 대접을 받았으면 좋겠는지, 우리는 오래 고민했습니다.
+          </p>
+          <a href="#cta-ko" class="btn">초대장 받기 →</a>
+          <a href="#you-ko" class="btn outline">먼저 천천히 읽기</a>
+        </div>
+
+        <div>
+          <div class="envelope">
+            <div class="to">
+              받는 분<br/>
+              <b>퍼슈터 · 일러스트레이터 귀하</b><br/>
+              <span class="small">당신의 캐릭터가 살고 있는 그 작은 우주로</span>
+            </div>
+            <div class="from">
+              — 퍼슈트 커넥트 안의 <b>퍼슈트 우체국</b> 운영팀 올림<br/>
+              <span class="small">2026 · 봄날</span>
+            </div>
+            <div class="postmark">
+              <span>FUR-POST</span>
+              CLOSED BETA<br/>FOUNDERS
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <div class="wrap">
+    <div class="pullquote">
+      누군가 내가 그린 스티커를 받아 들고 한참을 들여다보다가,<br/>
+      자신의 일기장 한 페이지에 정성껏 붙여 두고 — 며칠 뒤 그 페이지가 SNS 타임라인 위로 흘러 다닌다면.
+    </div>
+  </div>
+
+  <!-- BLUNT ANSWER -->
+  <section class="bluntly">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">솔직히 — 한 가지 물음에 먼저 답해 드립니다</span>
+        <h2>"그래서 — 제 그림을 보내드리면,<br/>저는 뭐가 좋은가요?"</h2>
+        <p>긴 편지의 멋진 비유들을 건너뛰고, 베타 단계에서 당신께 정직하게 드릴 수 있는 답변 다섯 가지를 먼저 적어 둡니다.</p>
+      </div>
+
+      <div class="bluntly-grid">
+        <div class="bluntly-item">
+          <span class="bluntly-num">01</span>
+          <h3>새 팬과 우연히 만나는 통로</h3>
+          <p>당신의 스티커는 베타 사용자 누구의 봉투에서도 <b>다른 작가들과 동등한 확률</b>로 등장합니다. 우연히 마주친 누군가가 당신의 캐릭터에 빠지고, 채널로 따라가 당신을 새로 팔로우하는 경로 — 이것이 가장 단순한 형태의 보상입니다.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">02</span>
+          <h3>SNS 공유 = 당신의 채널로 향하는 화살표</h3>
+          <p>사용자가 자신의 일기 페이지를 X·Bluesky·Instagram에 공유할 때마다, 공유 미리보기에는 <b>Verified 마크와 당신의 채널 링크가 자동으로 따라붙습니다</b>. 즉, 당신의 캐릭터가 앱 밖으로 흘러나갈 때, 그 흐름의 종착지는 항상 당신의 SNS입니다.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">03</span>
+          <h3>공인 발행자 표식 (Verified)</h3>
+          <p>OAuth로 검증된 <b>공식 발행 계정</b> 자격을 받으십니다. 도용·복제 계정과 시각적으로 완전히 구분되며, 베타에서 받은 발행자 자격은 정식 시작 단계에서도 그대로 이어집니다.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">04</span>
+          <h3>비용 0원 · 언제든 빠질 자유</h3>
+          <p>창작자 측에 어떠한 비용도 청구하지 않습니다. 베타 종료 시점에 <b>데이터 완전 삭제</b>를 선택해도 위약금이나 페널티는 없습니다. 마음에 들지 않으면 깔끔히 물러나실 수 있습니다.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">05</span>
+          <h3>정식 시작 시 수익 분배 첫 협의 대상</h3>
+          <p>정식으로 문을 여는 단계에 "받은 사랑을 함께 나누는 구조"를 도입할 때, <b>베타에 함께해 주신 분들이 가장 먼저 협의 자리에 모십니다</b>. 구체 비율·방식은 베타 기간 동안 창작자분들과 직접 대화하며 함께 다듬어 결정합니다.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">06</span>
+          <h3>당신의 캐릭터가 다치지 않는 환경</h3>
+          <p>인기 순위·보유자 수 비공개. 자유 텍스트 채팅 없음. 외부 약속 유도 차단. 신고·차단 영구 반영. 당신의 캐릭터가 가십·서열·논쟁의 대상이 될 구조 자체가 없습니다.</p>
+        </div>
+      </div>
+
+      <p style="text-align:center; max-width:620px; margin: 40px auto 0; font-size: 15px; color: var(--ink-soft);">
+        이것이 베타 단계에서 정직하게 드릴 수 있는 답입니다.<br/>
+        그 아래로 — 우리가 어떤 마음으로 이 우체국을 만들고 있는지, 조금 더 천천히 적어 두었습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="you-ko">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">왜 이 편지를 보냈는가</span>
+        <h2>당신의 캐릭터를 "유통"하지 않습니다.<br/>의식 안에서 다룹니다.</h2>
+        <p>퍼슈트는 단순한 굿즈가 아니라 한 사람의 또 다른 자아입니다. 우리는 그 사실을 잊지 않기 위해 앱 구조를 통째로 다르게 설계했습니다.</p>
+      </div>
+
+      <div class="gift-grid">
+        <div class="gift" data-num="01">
+          <div class="pin"></div>
+          <h3>공동 우표첩, 같은 출발선</h3>
+          <p>모든 작가의 스티커는 <b>하나의 공동 풀</b>에 함께 들어갑니다. 누군가 봉투를 열 때, 당신의 스티커는 다른 작가의 스티커와 <b>완전히 동등한 확률</b>로 등장합니다. 인기 가산점도, 노출 가중치도 없습니다 — 모두가 같은 출발선에 섭니다.</p>
+        </div>
+
+        <div class="gift" data-num="02">
+          <h3>OAuth Verified · 공식 발행 계정</h3>
+          <p>창작자는 별도의 <b>공식 발행 계정</b>으로 등록됩니다. 초대제 베타에서는 운영자가 직접 검증한 작가만이 Verified 마크를 답니다. 무단 사용·도용 계정과는 시각적으로 완전히 구분됩니다.</p>
+        </div>
+
+        <div class="gift" data-num="03">
+          <h3>도장이 모이는 일기장</h3>
+          <p>누군가가 당신의 스티커를 다른 사람과 교환할 때마다, 그 페이지에는 <b>두 사람의 시그니처 도장</b>이 길게 눌러 찍힙니다. 당신의 캐릭터는 매번 정성스러운 의식의 가운데에 놓입니다.</p>
+        </div>
+
+        <div class="gift" data-num="04">
+          <h3>가치 서열에서 보호받습니다</h3>
+          <p>모든 스티커는 <b>등장 확률이 동일</b>합니다. Pay-to-Win이 없습니다. 인기 순위·보유자 수 같은 <b>"가치 줄세우기" 데이터는 일체 공개되지 않습니다</b>. 등급조차 Common/Legend가 아니라 Cozy/Radiant/Mystic/Sharp — 분위기로만 구분합니다.</p>
+        </div>
+
+        <div class="gift" data-num="05">
+          <h3>현금 거래·외부 약속 차단</h3>
+          <p>채팅이 없습니다. 메시지는 <b>정형 이모티콘 팔레트</b>("고마워요", "광팬입니다" 등)만 사용 가능합니다. 다국어 자동 변환. 자유 텍스트가 원천 차단되어 사기·외부 거래 유도가 구조적으로 불가능합니다.</p>
+        </div>
+
+        <div class="gift" data-num="06">
+          <h3>일기 페이지가 SNS를 타고 흐릅니다</h3>
+          <p>사용자는 자신의 일기 한 페이지를 <b>X·Bluesky·Instagram</b>에 그대로 공유할 수 있습니다. 공유 화면에는 발행자(당신)의 Verified 마크와 채널 링크가 자동으로 따라붙습니다. 당신의 스티커는 앱 안에만 머물지 않고, 사용자의 타임라인을 타고 자연스럽게 더 멀리 흩어집니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIARY MOCKUP -->
+  <section style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">실제로 어떤 풍경인가</span>
+        <h2>당신의 캐릭터가 자리잡는 곳은,<br/>누군가의 손글씨가 있는 페이지입니다.</h2>
+      </div>
+
+      <div class="diary">
+        <div class="date">2026년 봄 · 두 번째 페이지</div>
+        <div style="font-family: 'Gaegu', cursive; font-size: 17px; color: var(--ink); line-height: 1.7;">
+          오늘 처음으로 <b style="color:var(--seal);">○○님</b>의 스티커를 받았다.<br/>
+          내 스티커 3장을 봉투에 담아 보냈는데,<br/>
+          답장으로 도착한 봉투에는 이런 스티커들이 들어 있었다.
+        </div>
+
+        <div class="card-row">
+          <div class="card-mini"><span class="nickname">달빛수달</span></div>
+          <div class="card-mini"><span class="nickname">노을여우</span></div>
+          <div class="card-mini"><span class="nickname">민트강아지</span></div>
+          <div class="card-mini" style="transform: rotate(-3deg);"><span class="nickname">밤하늘토끼</span></div>
+        </div>
+
+        <div style="font-family: 'Gaegu', cursive; font-size: 16px; color: var(--ink-soft); margin: 14px 0;">
+          그리고 우리 둘은 이 페이지에 도장을 찍었다. ✿
+        </div>
+
+        <div style="display: flex; gap: 18px; align-items: center; margin-top: 10px;">
+          <div class="stamp-mark">달</div>
+          <div class="stamp-mark green">愛</div>
+          <div style="font-family:'Gaegu',cursive; color:var(--ink-soft); font-size:14px;">— 양쪽 모두 길게 눌러 도장 완료 · 페이지가 빛났다</div>
+        </div>
+      </div>
+
+      <p style="text-align:center; max-width: 600px; margin: 32px auto 0; font-size: 15px;">
+        교환이 끝나면 페이지는 <b>자동으로 양쪽 일기장에 같은 모습으로 보관</b>됩니다. 시즌 우표가 부착되고, 상대의 도장이 남고, 이모티콘 메시지가 함께 적힙니다. 같은 페이지를 그대로 <b>X·Bluesky·Instagram에 공유</b>할 수도 있습니다 — 스티커가 단지 "수집된" 것이 아니라, <b>편지가 오간 흔적</b>으로 보존되고 흘러 다닙니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- MEMORY ANCHOR -->
+  <section class="memories">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">혹시 — 이런 두근거림, 기억하시나요?</span>
+        <h2>우리는 처음부터 새로운 것을 짓지 않았습니다.<br/>이미 사랑받았던 그 감각들을, 우체국 위에 옮겨 짓고 있습니다.</h2>
+      </div>
+
+      <div class="memory-grid">
+        <article class="memory">
+          <span class="memory-tag">Pokémon HOME · Wonder Box</span>
+          <h3>봉투에 다섯 마리를 넣어 띄워 두면 — 며칠 뒤, 어디서 왔는지 모를 답장이 도착하던 그 감각.</h3>
+          <p>알 같은 상자가 슬그머니 도착하던 그 두근거림을 기억하시는 분이라면, 우리가 어디서 그 감각을 옮겨왔는지 이미 짐작하실 겁니다. 모르는 사람과 무언가를 주고받을 때만 생기는 묘한 설렘 — 그것을 그대로, 우리 우체국 한쪽에 옮겨 두었습니다. 단, 우리는 포켓몬 대신 <b>스티커 다섯 장</b>을 봉투에 담아 띄웁니다.</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag alt">Pokémon TCG Pocket · Wonder Pick</span>
+          <h3>다섯 장이 뒷면으로 가만히 펼쳐지고 — 그중 단 한 장만 골라야 했던 그 망설임의 순간.</h3>
+          <p>운명과 망설임, 그리고 "왜 하필 이걸 골랐을까" 싶은 작은 후회까지. 그 감각을 한 줌 그대로 가져와, 우리 우체국에서 도착하는 봉투 안에 가만히 담아 두었습니다.</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag">Pokémon HOME · Room Trade</span>
+          <h3>여덟 자리 코드 하나로 모르는 방에 들어가, 모두가 같은 박자에 봉투를 펼쳤던 그 작은 공모의 감각.</h3>
+          <p>조용한 긴장과 동시 공개의 순간, 모두가 같은 호흡으로 봉투를 여는 그 풍경 — 우리 우체국에서는 이것을 그대로 옮겨와 "일제 오픈 의식"이라 부릅니다.</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag alt">Pokémon GO · 선물 보내기 + 스티커</span>
+          <h3>먼 도시의 친구에게 선물을 띄우면서, 그 위에 좋아하는 스티커 한 장을 곱게 붙이던 그 손길.</h3>
+          <p>"내가 다녀온 그 자리를, 네게도 보내고 싶다" — 그 마음이 시즌 스티커 한 장에 담기던 감각을 기억하시는 분이라면, 우리 우체국에서도 같은 일이 일어난다는 것을 금세 알아채실 겁니다. 교환 한 번마다 시즌 우표 한 장이 자동으로 붙고, 받은 사람의 일기장에 그 모양 그대로 오래 남습니다.</p>
+        </article>
+
+        <article class="memory wide">
+          <span class="memory-tag">말랑이 온라인 · 자유 창작 · 공동 풀 · 자유 교환</span>
+          <h3>누구든 자유롭게 만들어 투고하면 — 그 창작물이 공동 풀에 들어가, 누구의 손에든 닿을 수 있던 그 흐름.</h3>
+          <p>"누구든 그릴 수 있고, 누구든 받을 수 있다" — 그 공동 풀의 매력을 기억하시는 분이라면, 우리가 같은 구조 위에 서 있다는 것을 금세 알아채실 겁니다. 모든 작가의 스티커는 하나의 공동 풀에 함께 들어가고, 우체국 안에서 자유롭게 주고받습니다. <b>단, 한 가지 결정적인 차이가 있습니다 — 말랑이는 동기식 실시간 슬롯 거래였지만, 우리 우체국은 처음부터 끝까지 비동기식입니다.</b> 봉투를 띄우고 — 며칠 뒤 — 답장이 도착합니다. 그 사이에 자유 텍스트도 없고, 슬롯을 마주 보고 앉아 압박당하는 일도 없으며, 사기·외부 약속의 함정도 구조적으로 비껴 갑니다.</p>
+        </article>
+
+        <article class="memory wide">
+          <span class="memory-tag alt">처음 들어 보신다면</span>
+          <h3>이렇게 상상해 주세요.</h3>
+          <p>한쪽에는 봉투를 우체통에 띄우는 사람이 있고, 다른 한쪽에는 며칠 뒤 그 봉투를 천천히 펼치는 사람이 있습니다. 두 사람은 서로의 이름을 모릅니다. 봉투 위에는 누가 어디서 띄웠는지를 작게 알려 주는 우표 한 장이 붙어 있고, 그 안에는 — 당신이 그린 캐릭터를 담은 <b>스티커 한 장</b>이 들어 있습니다. 받은 사람은 그것을 자신의 일기장에 붙이거나, 한 장 그대로 자신의 SNS에 흘려보낼 수 있습니다. 이것이 이 우체국이 작동하는, 가장 작은 한 단위입니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE RITUALS -->
+  <section style="background: rgba(255,255,255,.25);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">우리가 설계한 세 가지 교환 의식</span>
+        <h2>드래그앤드롭이 아닙니다.<br/>편지를 쓰고, 봉인하고, 도착을 기다립니다.</h2>
+        <p>모든 거래 모드는 "퍼슈트 우체국 + 교환 일기장" 메타포 안에서 통합됩니다. 처음 써도 헤매지 않으면서, 한 번도 만져본 적 없는 감촉.</p>
+      </div>
+
+      <div class="rituals">
+        <div class="ritual">
+          <div class="ic">✉</div>
+          <h3>Friend Trade</h3>
+          <span class="ko-sub hand">— 함께 쓰는 일기장 —</span>
+          <ul>
+            <li>한 페이지를 두 사람이 동기 작성</li>
+            <li>스티커 배치 → 이모티콘 → 길게 눌러 <b>도장 의식</b></li>
+            <li>양측 도장 완료 시 페이지가 빛나며 찢어져 양쪽 일기장에 보관</li>
+            <li>한쪽이 도장 미완료면 거래 무효</li>
+          </ul>
+        </div>
+
+        <div class="ritual">
+          <div class="ic">✦</div>
+          <h3>Wonder Box</h3>
+          <span class="ko-sub hand">— 운명의 5장 —</span>
+          <ul>
+            <li>내 스티커 5장 + 우표 + 메시지를 봉인해 우체통 투함</li>
+            <li>비동기 매칭된 상대의 5장 보따리 도착</li>
+            <li><b>뒷면 5장 중 단 1장</b>만 선택 가능</li>
+            <li>나머지 4장은 다른 무작위 유저들에게 1:N 재분배 — 당신의 스티커가 더 멀리 흩어집니다</li>
+          </ul>
+        </div>
+
+        <div class="ritual">
+          <div class="ic">⌬</div>
+          <h3>Room Trade</h3>
+          <span class="ko-sub hand">— 공동 우체국 일제 오픈 —</span>
+          <ul>
+            <li>8자리 코드로 만드는 방, 최대 20명</li>
+            <li>각자 1장 + 우표 + 메시지 봉인 후 대기</li>
+            <li>인원 충분 시 시스템 무작위 짝짓기</li>
+            <li><b>동시 공개 의식</b> — 모두의 일기장에 같은 순간이 페이지로 새겨집니다</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider">· · ·</div>
+
+      <div style="display:flex; gap: 28px; flex-wrap: wrap; justify-content:center; margin-top: 24px;">
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal">위시<small>WISH POST</small></div>
+          <p class="small" style="margin-top:14px;">"이 스티커를 찾고 있어요" 게시판. 누군가 당신의 스티커를 위시했다면, 그 사실 자체가 도착 알림으로 전해집니다.</p>
+        </div>
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal" style="border-color:var(--stamp); color:var(--stamp); background:rgba(47,93,79,.06); box-shadow:0 0 0 6px rgba(47,93,79,.06);">우표<small>SEASON STAMP</small></div>
+          <p class="small" style="margin-top:14px;">시즌마다 디자인이 바뀌는 우표. 거래 페이지마다 자동 부착 → 별도 우표첩에 컬렉션으로 쌓입니다.</p>
+        </div>
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal">도장<small>PERSONAL SEAL</small></div>
+          <p class="small" style="margin-top:14px;">개인 시그니처 도장. 당신의 캐릭터를 받은 사람들이 어떤 도장을 찍었는지, 그 도장들이 한자리에 모입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">창작자 보호 정책</span>
+        <h2>당신의 캐릭터에게 일어나지 <em style="background:linear-gradient(transparent 62%, rgba(177,50,42,.25) 62% 92%, transparent 92%); font-style:normal;">않을</em> 일들.</h2>
+        <p>퍼슈트 커뮤니티에서 가장 자주 들었던 우려를 출시 사양 단계부터 구조적으로 차단했습니다.</p>
+      </div>
+
+      <ul class="trust-list">
+        <li>채팅 없음 — 자유 텍스트 입력이 구조적으로 불가능합니다.</li>
+        <li>현금 거래 유도 차단 — 정형 이모티콘만 허용.</li>
+        <li>외부 약속 유도 차단 — 외부 SNS·전화·이메일 노출 불가.</li>
+        <li>친구 코드 8자리만 공개 — 본인 식별 정보 비공개.</li>
+        <li>운영자 초대제 베타 — 무단 등록·도용 계정 원천 차단.</li>
+        <li>신고/차단 시 영구 매칭풀 제외 — Wonder/Room/Friend 전체 차단.</li>
+        <li>거래 이력 영구 보존 — 분쟁 시 추적 가능.</li>
+        <li>인기 순위·보유자 수 비공개 — 캐릭터 서열화 금지.</li>
+        <li>등장 확률 동일 — 모든 작가 같은 출발선, Pay-to-Win 부재.</li>
+        <li>SNS 공유 시 발행자 정보·Verified 마크 자동 첨부 — 도용 추적 가능.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">만약 함께해 주신다면</span>
+        <h2>이런 것을 부탁드리고, 이런 것을 약속드립니다.</h2>
+      </div>
+
+      <div class="deliver">
+        <h3>베타에 함께해 주실 분들과의 약속 (초안)</h3>
+        <div class="deliver-row">
+          <div>
+            <h4>우리가 부탁드리는 것</h4>
+            <ul>
+              <li>퍼슈트 캐릭터 이미지 1~5종 (PNG, 권장 1024×1024 이상, 누끼 컷)</li>
+              <li>캐릭터명·짧은 소개 (한국어, 영문 선택)</li>
+              <li>스타일 태그 (예: 수달 / 야행성 / 코지)</li>
+              <li>OAuth Verified용 채널 링크 (X·Bluesky·Instagram·트위치 중 택일)</li>
+              <li>베타 기간 1개월간 공동 스티커 풀 등재 동의</li>
+            </ul>
+          </div>
+          <div>
+            <h4>우리가 약속드리는 것</h4>
+            <ul>
+              <li>공동 스티커 풀에 <b>다른 작가와 동등한 확률</b>로 등재</li>
+              <li><b>Verified</b> 공식 발행 계정 부여</li>
+              <li>인기 순위·보유자 수 데이터 <b>일체 비공개</b></li>
+              <li>SNS 공유 화면에 <b>발행자 정보·채널 링크 자동 첨부</b></li>
+              <li>이미지 사용 범위는 본 앱 내 <b>스티커 표시·교환·일기 페이지·사용자 SNS 공유</b>에 한정. 굿즈·외부 매체 사용 불가.</li>
+              <li>베타 종료 시점에 데이터 완전 삭제 또는 정식 시작에 함께하기 중 <b>자유 선택</b></li>
+              <li>정식으로 문을 여는 때, <b>받은 사랑을 함께 나누는 자리</b>의 첫 협의 대상 (구체 방식은 베타 동안 함께 다듬어 결정)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small" style="margin-top: 24px; padding-top: 18px; border-top: 1px dashed rgba(80,50,20,.2);">
+          ※ 상기 조건은 베타 운영 합의서 초안이며, 실제 합의 시 명문화된 계약서로 별도 송부드립니다. 이미지의 모든 권리는, 처음부터 끝까지 창작자의 것입니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">로드맵</span>
+        <h2>지금 합류하시면, 이 우체국의 첫 번째 발행인이 됩니다.</h2>
+      </div>
+
+      <div class="roadmap">
+        <div class="stop">
+          <span class="when">PHASE 1 · 2026 (현재)</span>
+          <h3>클로즈드 베타 · 20~30명 · 1개월</h3>
+          <p>우체국이 잘 작동하는지, 사람들이 다시 찾아오는지, 서로를 다치게 하는 일이 없는지 — 이 세 가지를 살피는 시간입니다. 한국 퍼리·퍼슈트 팬덤이 첫 번째 손님이 됩니다. 공동 스티커 풀은 초대제 창작자들의 캐릭터로 시작합니다.</p>
+        </div>
+        <div class="stop">
+          <span class="when">PHASE 2 · 정식 시작</span>
+          <h3>정식 공개 · 창작자 직접 등록 · 실물 스티커 QR 연결</h3>
+          <p>창작자가 직접 채널을 등록할 수 있게 문이 열립니다. 실물 스티커에 QR 코드를 연결하여 오프라인 컨벤션과 굿즈에서도 이야기가 이어집니다. 받은 사랑을 창작자와 함께 나누는 구조도 이때부터 시작합니다 — 구체적인 방식은 베타 동안 창작자들과 함께 다듬어 결정합니다.</p>
+        </div>
+        <div class="stop">
+          <span class="when">PHASE 3 · 확장</span>
+          <h3>일본 → 글로벌 / 한·영·일 다국어</h3>
+          <p>Unity Localization 기반 한/영/일 동시 지원. 시즌 운영 이벤트(우표·스티커·봉투 일방 배포). AR 포토 모드·가상 컨벤션 도입 검토.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap" style="max-width: 820px;">
+      <div class="section-head">
+        <span class="pre-title">자주 묻는 물음</span>
+        <h2>미리 답을 적어 두었습니다.</h2>
+      </div>
+
+      <details>
+        <summary>Q. 제 캐릭터 이미지가 무단 복제·도용되면 어떻게 하나요?</summary>
+        <p>앱 내부에서는 이미지가 <b>스티커 단위로만</b> 표시되며 원본 파일 추출 기능은 제공하지 않습니다. 스크린샷 자체는 막을 수 없지만, 스티커 프레임은 캡처 시에도 "퍼슈트 커넥트 스티커"임이 즉시 인지되도록 디자인됩니다. SNS 공유 화면에는 발행자 정보·Verified 마크·채널 링크가 자동으로 따라붙기 때문에, 비공식 복제본은 Verified 마크 부재로 곧장 식별됩니다.</p>
+      </details>
+      <details>
+        <summary>Q. 베타 끝나고 제 캐릭터가 그대로 남아 운영되면 곤란합니다.</summary>
+        <p>베타 종료 시점에 (1) 데이터 완전 삭제 (2) 정식 시작에 함께하기 — 두 가지 중 자유롭게 선택하실 수 있습니다. 어느 쪽을 택해도 위약금이나 페널티는 없습니다. 이 우체국은 창작자의 신뢰 위에서만 의미가 있기 때문입니다.</p>
+      </details>
+      <details>
+        <summary>Q. 다른 작가의 캐릭터와 한 풀에 섞이나요?</summary>
+        <p>네. 모든 작가의 스티커는 <b>하나의 공동 풀</b>에 들어가며, 봉투를 열 때 누구의 스티커가 나올지는 <b>완전히 동등한 확률</b>로 결정됩니다. 이것이 의도된 핵심 구조입니다 — 인기 가산점이나 노출 가중치 없이, 모든 작가가 같은 출발선에 서고, 사용자는 우연히 만난 누군가의 캐릭터에 새로 빠질 기회를 얻습니다. (단, Verified 마크와 발행자 정보는 모든 스티커에 명확히 표시됩니다.)</p>
+      </details>
+      <details>
+        <summary>Q. 창작자에게 돌아가는 몫은 어떻게 정해지나요?</summary>
+        <p>베타 동안에는 어떤 결제도 발생하지 않습니다. 사용자는 미니게임을 즐기고 매일 출석하면서 자연스럽게 모은 것만으로 봉투를 열어봅니다. 정식으로 문을 여는 단계에 이르면, 받은 사랑을 창작자와 나누는 구조를 도입합니다. 다만 모든 작가가 같은 풀에 동등 확률로 등장하기 때문에, "어떤 지표로 사랑을 측정하고 어떻게 나눌지"는 베타 동안 창작자분들과 직접 대화하면서 함께 다듬어 결정합니다. 베타에 함께해 주신 분들이 그 자리의 첫 협의 대상이며, 구체 방식은 정식 계약 시점에 명문화하여 따로 보내 드립니다.</p>
+      </details>
+      <details>
+        <summary>Q. AI로 생성한 캐릭터도 가능한가요?</summary>
+        <p>베타 단계에서는 <b>창작자 본인이 직접 디자인하고 실제 퍼슈트가 존재하거나 일러스트로 안정적으로 운영 중인 캐릭터</b>만 받습니다. AI 생성 이미지·타인 캐릭터 트레이싱·2차 창작물은 정책상 받지 않습니다.</p>
+      </details>
+      <details>
+        <summary>Q. 캐릭터 이미지를 몇 장 준비해야 하나요?</summary>
+        <p>1장만으로도 시작 가능합니다. 1~5장을 권장드리며, 이 경우 같은 캐릭터가 다양한 포즈·표정의 스티커로 풀에 들어갑니다. 한 캐릭터가 여러 장으로 나뉘는 형태는 베타에서 가장 즐거운 수집·교환 경험을 만듭니다.</p>
+      </details>
+      <details>
+        <summary>Q. 비용이 발생하나요?</summary>
+        <p>창작자 측에서 부담하는 비용은 없습니다. 베타 운영 비용은 운영팀이 전액 부담합니다. 공동 풀 운영, OAuth 검증, 스티커 디자인 적용까지 운영팀이 처리합니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-ko" class="cta">
+    <div class="wrap">
+      <div class="seal">초대<small>INVITATION</small></div>
+      <h2>이 우체국의 첫 번째 발행인 자리,<br/>당신을 위해 비워 두었습니다.</h2>
+      <p>긴 편지를 끝까지 읽어 주셔서 감사합니다. 답장은 짧아도 좋습니다. 캐릭터 이미지 1장과 한 줄 소개만으로도 우리는 베타 풀에 당신을 모실 준비를 시작할 수 있습니다.</p>
+      <div>
+        <a href="mailto:finkiefie@gmail.com?subject=%5B%ED%8D%BC%EC%8A%88%ED%8A%B8%20%EC%BB%A4%EB%84%A5%ED%8A%B8%5D%20%EC%B0%BD%EC%9E%91%EC%9E%90%20%EB%B2%A0%ED%83%80%20%EC%B0%B8%EC%97%AC%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%0A%0A%E2%80%A2%20%EC%BA%90%EB%A6%AD%ED%84%B0%EB%AA%85%3A%20%0A%E2%80%A2%20%EC%B0%BD%EC%9E%91%EC%9E%90%EB%AA%85(%ED%95%84%EB%AA%85)%3A%20%0A%E2%80%A2%20%EC%B1%84%EB%84%90(X%2F%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%93%B1)%3A%20%0A%E2%80%A2%20%ED%95%9C%20%EC%A4%84%20%EC%86%8C%EA%B0%9C%3A%20%0A%0A%5B%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8A%94%20%EB%82%98%EC%A4%91%EC%97%90%20%EB%B3%B4%EB%82%B4%EC%A3%BC%EC%85%94%EB%8F%84%20%EA%B4%9C%EC%B0%AE%EC%8A%B5%EB%8B%88%EB%8B%A4%5D" class="btn">메일로 답장 보내기 →</a>
+        <a href="#you-ko" class="btn outline">한 번 더 읽기</a>
+      </div>
+      <p class="small" style="margin-top: 32px;">finkiefie@gmail.com · 퍼슈트 커넥트 / 퍼슈트 우체국 운영팀</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="stamp-mark green">禮</div>
+    퍼슈트 커넥트 v2 (Fursuit Connect) · 앱 속의 작은 우체국, 퍼슈트 우체국 · 클로즈드 베타 창작자 초대장 · 2026<br/>
+    본 페이지는 베타 운영 합의를 위한 제안서이며, 모든 합의는 별도 계약서로 명문화됩니다.<br/>
+    이미지 권리는 100% 창작자에게 귀속됩니다.
+  </footer>
+
+</main>
+
+<main class="lang-content" data-lang="en" hidden>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <svg class="stamp-corner" viewBox="0 0 130 150">
+        <rect x="6" y="6" width="118" height="138" fill="#faf3e3" stroke="rgba(80,50,20,.3)" stroke-dasharray="3 3" />
+        <rect x="14" y="14" width="102" height="100" fill="#b1322a" opacity=".15" />
+        <text x="65" y="50" text-anchor="middle" font-family="Gowun Batang, serif" font-size="14" font-weight="700" fill="#8a1f17">BETA</text>
+        <text x="65" y="72" text-anchor="middle" font-family="Gowun Batang, serif" font-size="10" fill="#4f3a25">Creator Invitation</text>
+        <text x="65" y="92" text-anchor="middle" font-family="Gaegu, cursive" font-size="10" fill="#4f3a25">CLOSED · 2026</text>
+        <text x="65" y="132" text-anchor="middle" font-family="Noto Sans KR, sans-serif" font-size="9" font-weight="700" fill="#2f5d4f" letter-spacing="2">FURSUIT POST</text>
+      </svg>
+
+      <div class="hero-grid">
+        <div>
+          <div class="pre-title">Fursuit Connect · Creator Invitation No. 001</div>
+          <h1>There are people who would love<br/>to paste your character onto<br/>the most precious page of their diary.</h1>
+          <p class="lead">
+            <em>Fursuit Connect</em> is a mobile app for the Korean furry/fursuit fandom — and beyond — where people <b>collect stickers, trade them, paste them into a diary, and let them flow out into social timelines</b>.<br/><br/>
+            Inside the app sits a small post office — <em>The Fursuit Post</em>. Every sticker exchange passes through it like a letter, and every outcome is preserved as a page in a shared diary. Wherever this letter speaks of "the Post," it means that little world within the app.<br/><br/>
+            We don't want to use your character merely as an "asset." We have turned your character into a single <em>sticker</em>, and designed a ceremony in which it is <em>sealed in an envelope</em>, <em>marked with a hand-pressed seal</em>, and <em>pasted neatly onto a diary page</em>. Someone will look at your sticker for a long while, then slowly press their signature seal onto the page.<br/><br/>
+            How your character should be treated on that page — we have thought about it for a long time.
+          </p>
+          <a href="#cta-en" class="btn">Receive the invitation →</a>
+          <a href="#you-en" class="btn outline">Read slowly first</a>
+        </div>
+
+        <div>
+          <div class="envelope">
+            <div class="to">
+              To<br/>
+              <b>Fursuiters &amp; Illustrators</b><br/>
+              <span class="small">To the small universe where your character lives</span>
+            </div>
+            <div class="from">
+              — Yours, the <b>Fursuit Post</b> team — from inside Fursuit Connect<br/>
+              <span class="small">Spring · 2026</span>
+            </div>
+            <div class="postmark">
+              <span>FUR-POST</span>
+              CLOSED BETA<br/>FOUNDERS
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <div class="wrap">
+    <div class="pullquote">
+      What if someone received the sticker I drew, held it in their hands, gazed at it for a long while,<br/>
+      pasted it onto a page of their diary — and days later, that page drifted across someone's social timeline?
+    </div>
+  </div>
+
+  <!-- BLUNT ANSWER -->
+  <section class="bluntly">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Bluntly — let us answer one question first</span>
+        <h2>"So — if I send my art to you,<br/>what do I actually get out of it?"</h2>
+        <p>Setting aside the lovely metaphors in this letter, here are the five honest answers we can give you at the beta stage.</p>
+      </div>
+
+      <div class="bluntly-grid">
+        <div class="bluntly-item">
+          <span class="bluntly-num">01</span>
+          <h3>A path to chance encounters with new fans</h3>
+          <p>Your sticker appears in any beta user's envelope at <b>exactly equal probability with every other artist's</b>. Someone stumbling upon your character, falling for it, and following your channel — that is the simplest form of reward.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">02</span>
+          <h3>Every SNS share becomes an arrow back to your channel</h3>
+          <p>Whenever a user shares their diary page to X / Bluesky / Instagram, the share preview automatically carries <b>your Verified mark and channel link</b>. So whenever your character flows outside the app, the trail always ends at your social profile.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">03</span>
+          <h3>The Verified mark of an Official Issuer</h3>
+          <p>You receive an OAuth-verified <b>Official Issuer account</b>. Visually distinct from impersonators or unauthorized re-uploads, and the issuer status you receive in the beta carries over to the official opening.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">04</span>
+          <h3>Zero cost · free to leave anytime</h3>
+          <p>No cost is ever charged to the creator. At beta's end you may freely choose <b>complete data deletion</b> with no penalty whatsoever. If it's not for you, you can walk away cleanly.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">05</span>
+          <h3>First in line for the share-of-the-love structure</h3>
+          <p>When the official opening introduces a structure that shares with creators the affection their stickers received, <b>beta creators are the first to be invited into that conversation</b>. The exact percentages and mechanism will be co-designed with creators during the beta itself.</p>
+        </div>
+
+        <div class="bluntly-item">
+          <span class="bluntly-num">06</span>
+          <h3>An environment where your character cannot be hurt</h3>
+          <p>No popularity rankings, no holder counts. No free-text chat. No off-platform contact. Reports and blocks are permanent. There is no structural channel for your character to become the subject of gossip, ranking, or argument.</p>
+        </div>
+      </div>
+
+      <p style="text-align:center; max-width:620px; margin: 40px auto 0; font-size: 15px; color: var(--ink-soft);">
+        These are the honest answers we can give you at the beta stage.<br/>
+        Below — we have written, more slowly, the spirit in which we are building this post office.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="you-en">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Why we sent this letter</span>
+        <h2>We don't "distribute" your character.<br/>We hold it inside a ceremony.</h2>
+        <p>A fursuit is not merely merchandise — it is another self of its creator. To honor that, we redesigned the entire app structure differently.</p>
+      </div>
+
+      <div class="gift-grid">
+        <div class="gift" data-num="01">
+          <div class="pin"></div>
+          <h3>A common pool, the same starting line</h3>
+          <p>Every artist's stickers join one <b>shared common pool</b>. When someone opens an envelope, your sticker appears at the <b>exact same probability</b> as any other artist's. No popularity bonuses, no exposure weights — everyone stands at the same starting line.</p>
+        </div>
+
+        <div class="gift" data-num="02">
+          <h3>OAuth Verified · Official Issuer</h3>
+          <p>Creators are registered as <b>Official Issuer accounts</b>. In the invite-only beta, only operator-verified artists receive the Verified mark. Visually distinct from any unauthorized re-uploads or impersonators.</p>
+        </div>
+
+        <div class="gift" data-num="03">
+          <h3>A diary where seals gather</h3>
+          <p>Every time someone trades your sticker, that page is pressed with the <b>signature seals of both parties</b> — held long, like a real seal. Your character is always in the center of a careful ritual.</p>
+        </div>
+
+        <div class="gift" data-num="04">
+          <h3>Protected from value-ranking</h3>
+          <p>Every sticker has the <b>same chance of appearing</b>. No Pay-to-Win. <b>No popularity rankings, no holder counts</b> — no ranking data is ever made public. Even rarity tiers avoid "Common/Legendary" — we use moods instead: Cozy, Radiant, Mystic, Sharp.</p>
+        </div>
+
+        <div class="gift" data-num="05">
+          <h3>No cash trades, no off-platform contact</h3>
+          <p>There is no chat. Messages use only a <b>structured emoji palette</b> ("Thank you", "I love this", "Big fan"). Multi-language auto-translation. Free text is structurally impossible, so scams and off-platform deals cannot occur.</p>
+        </div>
+
+        <div class="gift" data-num="06">
+          <h3>Diary pages that drift across social timelines</h3>
+          <p>Users can share a single diary page directly to <b>X, Bluesky, and Instagram</b>. The share preview automatically carries the issuer's Verified mark and channel link. Your sticker doesn't stay inside the app — it travels naturally across timelines, reaching further than the app alone could.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIARY MOCKUP -->
+  <section style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">What it actually looks like</span>
+        <h2>The place your character settles into<br/>is a page with someone's handwriting on it.</h2>
+      </div>
+
+      <div class="diary">
+        <div class="date">Spring 2026 · Page Two</div>
+        <div style="font-family: 'Gaegu', cursive; font-size: 17px; color: var(--ink); line-height: 1.7;">
+          Today I received <b style="color:var(--seal);">○○'s</b> sticker for the first time.<br/>
+          I sent three of my stickers in an envelope,<br/>
+          and the envelope that came back held these.
+        </div>
+
+        <div class="card-row">
+          <div class="card-mini"><span class="nickname">Moonlight Otter</span></div>
+          <div class="card-mini"><span class="nickname">Sunset Fox</span></div>
+          <div class="card-mini"><span class="nickname">Mint Pup</span></div>
+          <div class="card-mini" style="transform: rotate(-3deg);"><span class="nickname">Nightsky Hare</span></div>
+        </div>
+
+        <div style="font-family: 'Gaegu', cursive; font-size: 16px; color: var(--ink-soft); margin: 14px 0;">
+          And then the two of us pressed our seals onto this page. ✿
+        </div>
+
+        <div style="display: flex; gap: 18px; align-items: center; margin-top: 10px;">
+          <div class="stamp-mark">달</div>
+          <div class="stamp-mark green">愛</div>
+          <div style="font-family:'Gaegu',cursive; color:var(--ink-soft); font-size:14px;">— Both seals held long, completed · the page glowed</div>
+        </div>
+      </div>
+
+      <p style="text-align:center; max-width: 600px; margin: 32px auto 0; font-size: 15px;">
+        When the trade ends, the page is <b>automatically stored in both diaries in identical form</b>. A season stamp is affixed, the other person's seal remains, the emoji message is written alongside. The same page can be <b>shared directly to X, Bluesky, or Instagram</b> — the sticker is not merely "collected" but preserved, and then carried outward, as <b>the trace of letters that passed between two people</b>.
+      </p>
+    </div>
+  </section>
+
+  <!-- MEMORY ANCHOR -->
+  <section class="memories">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Perhaps — do you remember this feeling?</span>
+        <h2>We didn't build something new from scratch.<br/>We carried already-loved feelings over, and rebuilt them on top of a post office.</h2>
+      </div>
+
+      <div class="memory-grid">
+        <article class="memory">
+          <span class="memory-tag">Pokémon HOME · Wonder Box</span>
+          <h3>You dropped five into a box — and days later, a reply from somewhere unknown quietly arrived.</h3>
+          <p>If you remember that quiet thrill when the egg-shaped package came back, you already sense where we borrowed it from. The strange joy that only appears when you exchange <em>something</em> with someone you'll never meet — we carried it, intact, into one corner of our post office. We simply put <b>five stickers</b> in the envelope instead of five Pokémon.</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag alt">Pokémon TCG Pocket · Wonder Pick</span>
+          <h3>Five cards spread face-down — and you had to choose just one, in that small moment of hesitation.</h3>
+          <p>Fate, hesitation, and the tiny "why did I pick <em>that</em> one" regret. We brought that handful of feeling over, and tucked it gently inside the envelope that arrives at your door.</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag">Pokémon HOME · Room Trade</span>
+          <h3>One 8-digit code, an unknown room, everyone breaking the seal at the same beat — that small conspiracy.</h3>
+          <p>The quiet tension and the simultaneous reveal, everyone breathing in unison as they break the seal — we keep this in our post office and call it the "open-together ceremony."</p>
+        </article>
+
+        <article class="memory">
+          <span class="memory-tag alt">Pokémon GO · Sending Gifts + Stickers</span>
+          <h3>That careful gesture of sending a gift to a friend in a faraway city, and pressing a single favorite sticker on top.</h3>
+          <p>"I want to send you the place I went to" — if you remember that feeling being packed into a single seasonal sticker, you'll quickly recognize that the same thing happens in our post office. Every trade carries an automatically affixed season stamp, and it stays in the receiver's diary, in the same shape, for a long time.</p>
+        </article>
+
+        <article class="memory wide">
+          <span class="memory-tag">Mallangee Online · Free creation · Common pool · Free trade</span>
+          <h3>Anyone could freely create and submit — and what they made would enter a common pool, reachable by anyone's hands.</h3>
+          <p>"Anyone can draw it, and anyone can receive it" — if you remember the charm of that common-pool model, you'll quickly notice that we stand on the same structure. Every artist's stickers join one common pool, and travel freely inside the post office. <b>But one decisive difference: Mallangee was synchronous, real-time slot trading; our post office is fully asynchronous from beginning to end.</b> You drop an envelope — and days later — a reply arrives. In between, there is no free text, no being pressured across a face-to-face slot, and structurally no opening for the scams and off-platform deals that plagued the older model.</p>
+        </article>
+
+        <article class="memory wide">
+          <span class="memory-tag alt">If this is your first time hearing of any of it</span>
+          <h3>Picture it this way.</h3>
+          <p>On one side, someone drops a sealed envelope into a mailbox. On the other side, days later, someone slowly opens it. The two never learn each other's names. On the envelope is a small stamp that tells the receiver who sent it, and from where — and inside, a single <b>sticker</b> carrying the character you drew. The receiver can paste it into their diary, or send the whole page drifting across their own social timeline. That is the smallest single unit by which this post office works.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE RITUALS -->
+  <section style="background: rgba(255,255,255,.25);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Three exchange ceremonies we designed</span>
+        <h2>Not drag-and-drop.<br/>You write a letter, seal it, and wait for it to arrive.</h2>
+        <p>Every trading mode lives inside one unified metaphor: "The Fursuit Post + Exchange Diary." Minimal learning curve — and a tactile feel no other app offers.</p>
+      </div>
+
+      <div class="rituals">
+        <div class="ritual">
+          <div class="ic">✉</div>
+          <h3>Friend Trade</h3>
+          <span class="ko-sub hand">— The Diary We Share —</span>
+          <ul>
+            <li>Two people write one diary page synchronously</li>
+            <li>Place stickers → emoji message → long-press <b>seal ceremony</b></li>
+            <li>When both seals complete, the page glows and tears apart into both diaries</li>
+            <li>If one side never seals, the trade is voided</li>
+          </ul>
+        </div>
+
+        <div class="ritual">
+          <div class="ic">✦</div>
+          <h3>Wonder Box</h3>
+          <span class="ko-sub hand">— The Fated Five —</span>
+          <ul>
+            <li>Seal 5 of your stickers + a stamp + a message, drop it into the mailbox</li>
+            <li>An asynchronously matched stranger's bundle of 5 arrives</li>
+            <li>You may choose <b>only 1 of the 5 face-down stickers</b></li>
+            <li>The other 4 are redistributed 1:N to other random users — your sticker travels further</li>
+          </ul>
+        </div>
+
+        <div class="ritual">
+          <div class="ic">⌬</div>
+          <h3>Room Trade</h3>
+          <span class="ko-sub hand">— Communal Post, Opened Together —</span>
+          <ul>
+            <li>An 8-digit room code, up to 20 people</li>
+            <li>Each person seals 1 sticker + stamp + message and waits</li>
+            <li>When capacity is reached, the system randomly pairs everyone</li>
+            <li><b>Simultaneous-open ceremony</b> — the same moment is etched into every diary as a page</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider">· · ·</div>
+
+      <div style="display:flex; gap: 28px; flex-wrap: wrap; justify-content:center; margin-top: 24px;">
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal">위시<small>WISH POST</small></div>
+          <p class="small" style="margin-top:14px;">"I'm looking for this sticker" board. When someone wishes for your sticker, that wish itself arrives as a notification.</p>
+        </div>
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal" style="border-color:var(--stamp); color:var(--stamp); background:rgba(47,93,79,.06); box-shadow:0 0 0 6px rgba(47,93,79,.06);">우표<small>SEASON STAMP</small></div>
+          <p class="small" style="margin-top:14px;">A stamp whose design changes every season. Affixed automatically to every trade page → builds up a separate stamp album.</p>
+        </div>
+        <div style="text-align:center; max-width:240px;">
+          <div class="seal">도장<small>PERSONAL SEAL</small></div>
+          <p class="small" style="margin-top:14px;">Your signature seal. The seals pressed by everyone who received your character all gather in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Creator-protection policy</span>
+        <h2>Things that will <em style="background:linear-gradient(transparent 62%, rgba(177,50,42,.25) 62% 92%, transparent 92%); font-style:normal;">never</em> happen to your character.</h2>
+        <p>The concerns we heard most often in the fursuit community — we blocked them structurally, at the spec-design stage.</p>
+      </div>
+
+      <ul class="trust-list">
+        <li>No chat — free-text input is structurally impossible.</li>
+        <li>No cash-trade solicitation — structured emoji only.</li>
+        <li>No off-platform contact — external SNS / phone / email exposure blocked.</li>
+        <li>Only an 8-digit Friend Code is shared — personal identifiers stay private.</li>
+        <li>Invite-only operator-vetted beta — no unauthorized or impersonator accounts.</li>
+        <li>Reports/blocks permanently exclude users from Wonder / Room / Friend matching.</li>
+        <li>Trade history is permanently preserved — traceable in any dispute.</li>
+        <li>Popularity rankings and holder counts are never shown.</li>
+        <li>Equal appearance probability for all stickers — same starting line for every artist, Pay-to-Win is structurally absent.</li>
+        <li>SNS share previews automatically carry issuer info and the Verified mark — impersonation is traceable.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">If you join us</span>
+        <h2>Here's what we ask of you, and what we promise in return.</h2>
+      </div>
+
+      <div class="deliver">
+        <h3>Draft terms for beta creators</h3>
+        <div class="deliver-row">
+          <div>
+            <h4>What we ask</h4>
+            <ul>
+              <li>1 to 5 fursuit character images (PNG, ideally ≥ 1024×1024, transparent cut-outs preferred)</li>
+              <li>Character name + a short bio (Korean and/or English)</li>
+              <li>Style tags (e.g. Otter / Nocturnal / Cozy)</li>
+              <li>One channel link for OAuth Verified (X / Bluesky / Instagram / Twitch)</li>
+              <li>Consent to be entered into the common sticker pool during the 1-month beta</li>
+            </ul>
+          </div>
+          <div>
+            <h4>What we promise</h4>
+            <ul>
+              <li>Entry into the common sticker pool at <b>equal probability with every other artist</b></li>
+              <li><b>Verified</b> Official Issuer account</li>
+              <li>Popularity / holder-count data <b>kept entirely private</b></li>
+              <li>SNS share previews automatically carry your <b>issuer info and channel link</b></li>
+              <li>Image use limited <b>strictly to in-app sticker display, trades, diary pages, and user SNS shares</b>. No merchandising or external media use.</li>
+              <li>At beta's end: <b>free choice</b> between complete data deletion or staying on for the official opening</li>
+              <li>At the official opening: <b>priority partner</b> for the share-of-the-love structure (the exact mechanism is co-designed with creators during the beta)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small" style="margin-top: 24px; padding-top: 18px; border-top: 1px dashed rgba(80,50,20,.2);">
+          ※ The above is a draft agreement for beta operation. Final terms will be formalized in a separate written contract. Image rights of course remain 100% with the creator.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pre-title">Roadmap</span>
+        <h2>Join now, and you become the very first issuer of this post office.</h2>
+      </div>
+
+      <div class="roadmap">
+        <div class="stop">
+          <span class="when">PHASE 1 · 2026 (NOW)</span>
+          <h3>Closed Beta · 20–30 people · 1 month</h3>
+          <p>A quiet stretch where we watch three things — whether the post office runs smoothly, whether people come back, and whether anyone is being hurt. The Korean furry/fursuit fandom is the first guest. The common sticker pool starts with the characters of invite-only creators.</p>
+        </div>
+        <div class="stop">
+          <span class="when">PHASE 2 · OFFICIAL OPENING</span>
+          <h3>Public opening · creator self-registration · physical sticker QR</h3>
+          <p>Creators can register their channel directly themselves. Physical stickers carry a QR code, letting the story continue at offline conventions and on real-world goods. From this point on, the affection your stickers receive is shared with you, the creator — the exact mechanism is co-designed with beta creators during the beta itself.</p>
+        </div>
+        <div class="stop">
+          <span class="when">PHASE 3 · EXPANSION</span>
+          <h3>Japan → global · KO/EN/JA multilingual</h3>
+          <p>Unity Localization-based simultaneous KO/EN/JA support. Seasonal operator events (stamp/sticker/envelope distributions). AR Photo Mode and Virtual Convention under review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap" style="max-width: 820px;">
+      <div class="section-head">
+        <span class="pre-title">Questions you may have</span>
+        <h2>Answered in advance.</h2>
+      </div>
+
+      <details>
+        <summary>Q. What if my character images get pirated or impersonated?</summary>
+        <p>Inside the app, images are only ever shown as <b>bound stickers</b> — no raw file export is provided. Screenshots cannot be prevented, but sticker frames are designed so that even in a screenshot it is immediately recognizable as a "Fursuit Connect sticker." SNS share previews automatically carry issuer info, the Verified mark, and a channel link, so any unofficial copies are instantly identifiable by the absence of that mark.</p>
+      </details>
+      <details>
+        <summary>Q. I don't want my character to keep being operated after the beta ends.</summary>
+        <p>At beta's end you may freely choose between (1) complete data deletion or (2) staying on for the official opening. Neither option incurs any penalty. This post office only works if creators trust it, so we treat that choice as non-negotiable.</p>
+      </details>
+      <details>
+        <summary>Q. Will my character be mixed in a pool with other artists'?</summary>
+        <p>Yes. Every artist's stickers join a <b>single common pool</b>, and which sticker appears when an envelope is opened is determined at <b>exactly equal probability</b>. This is the intended core structure — no popularity bonuses, no exposure weights, every artist on the same starting line, and every user given the chance to suddenly fall for a character they had never seen before. (That said, the Verified mark and issuer info are clearly attached to every sticker.)</p>
+      </details>
+      <details>
+        <summary>Q. How is the creator's share determined?</summary>
+        <p>During the beta no payment takes place at all. Users gather coins naturally through the minigame and daily attendance, and open envelopes with those alone. At the official opening, we introduce a structure that shares the affection your stickers received with you, the creator. Because every artist sits in the same pool at equal probability, the question of "what counts as love and how we share it" is one we will work out together with creators during the beta. Beta creators sit at the front of that conversation, and the eventual mechanism will be written into a separate, formal contract at that stage.</p>
+      </details>
+      <details>
+        <summary>Q. Are AI-generated characters acceptable?</summary>
+        <p>In the beta we accept <b>only characters designed by the creator themselves, with an existing real fursuit or a stable, actively maintained illustrated character</b>. AI-generated images, traced characters, and fan-art of someone else's character are out of scope by policy.</p>
+      </details>
+      <details>
+        <summary>Q. How many character images should I prepare?</summary>
+        <p>One is enough to start. We recommend 1–5, in which case the same character enters the pool as multiple stickers with varied poses and expressions. A single character split across multiple stickers creates the most enjoyable collecting-and-trading experience in the beta.</p>
+      </details>
+      <details>
+        <summary>Q. Does it cost me anything?</summary>
+        <p>No cost to the creator. The operations team covers everything: common-pool operation, OAuth verification, sticker design adaptation.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-en" class="cta">
+    <div class="wrap">
+      <div class="seal">초대<small>INVITATION</small></div>
+      <h2>The seat for the very first issuer of this post office —<br/>we kept it open for you.</h2>
+      <p>Thank you for reading this long letter to the end. Your reply may be short. Even a single character image and a one-line bio is enough for us to begin preparing your place in the beta pool.</p>
+      <div>
+        <a href="mailto:finkiefie@gmail.com?subject=%5BFursuit%20Connect%5D%20Creator%20Beta%20Inquiry&body=Hello%2C%0A%0A%E2%80%A2%20Character%20name%3A%20%0A%E2%80%A2%20Creator%20name%20(handle)%3A%20%0A%E2%80%A2%20Channel%20(X%2FInstagram%2Fetc)%3A%20%0A%E2%80%A2%20One-line%20bio%3A%20%0A%0A%5BImages%20can%20follow%20later%5D" class="btn">Reply by email →</a>
+        <a href="#you-en" class="btn outline">Read once more</a>
+      </div>
+      <p class="small" style="margin-top: 32px;">finkiefie@gmail.com · Fursuit Connect / The Fursuit Post team</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="stamp-mark green">禮</div>
+    Fursuit Connect v2 · The little post office inside the app, The Fursuit Post · Closed Beta Creator Invitation · 2026<br/>
+    This page is a proposal for beta operation. All terms will be formalized in a separate written contract.<br/>
+    Image rights remain 100% with the creator.
+  </footer>
+
+</main>
+
+<div class="lang-switch-bar bottom">
+  <nav class="lang-switch" aria-label="Language switcher">
+    <button type="button" data-lang="ko" class="active" aria-pressed="true">KO</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </nav>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.lang-switch button');
+  var contents = document.querySelectorAll('.lang-content');
+  function setLang(lang) {
+    buttons.forEach(function (b) {
+      var active = b.dataset.lang === lang;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    contents.forEach(function (m) {
+      m.hidden = m.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('fc_lang', lang); } catch (e) {}
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('fc_lang'); } catch (e) {}
+  if (saved === 'en' || saved === 'ko') setLang(saved);
+})();
+</script>
+
+</body>
+</html>
