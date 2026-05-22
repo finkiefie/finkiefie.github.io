@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#5a3a1a" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f4ecdc"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative border -->
+  <rect x="20" y="20" width="1160" height="590" fill="none" stroke="#503214" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Stamp corner (top-left) -->
+  <g transform="translate(60, 60) rotate(-6)">
+    <rect x="0" y="0" width="180" height="200" fill="#faf3e3" stroke="#503214" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+    <rect x="14" y="14" width="152" height="138" fill="#b1322a" opacity=".18"/>
+    <text x="90" y="60" text-anchor="middle" font-family="serif" font-size="22" font-weight="700" fill="#8a1f17">베타</text>
+    <text x="90" y="92" text-anchor="middle" font-family="serif" font-size="14" fill="#4f3a25">창작자 초대장</text>
+    <text x="90" y="118" text-anchor="middle" font-family="serif" font-size="12" fill="#4f3a25">CLOSED · 2026</text>
+    <text x="90" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#2f5d4f" letter-spacing="3">FURSUIT POST</text>
+  </g>
+
+  <!-- Envelope mockup (right) -->
+  <g transform="translate(730, 165) rotate(-2)">
+    <!-- envelope -->
+    <rect x="0" y="0" width="380" height="240" fill="#f7efde" stroke="#503214" stroke-opacity="0.3" stroke-width="1.5"/>
+    <!-- airmail stripe pattern (top + bottom edges) -->
+    <g opacity="0.7">
+      <rect x="0" y="0" width="380" height="8" fill="#b1322a" opacity="0.55"/>
+      <rect x="0" y="232" width="380" height="8" fill="#2f5d4f" opacity="0.55"/>
+      <rect x="0" y="8" width="8" height="224" fill="#b1322a" opacity="0.55"/>
+      <rect x="372" y="8" width="8" height="224" fill="#2f5d4f" opacity="0.55"/>
+    </g>
+    <!-- to -->
+    <text x="30" y="50" font-family="cursive,serif" font-size="22" fill="#2a1d12">받는 분</text>
+    <text x="30" y="80" font-family="serif" font-size="18" font-weight="700" fill="#2a1d12">퍼슈터 · 일러스트레이터 귀하</text>
+    <line x1="30" y1="100" x2="350" y2="100" stroke="#503214" stroke-opacity="0.2" stroke-dasharray="2 3"/>
+    <!-- from -->
+    <text x="350" y="180" text-anchor="end" font-family="cursive,serif" font-size="16" fill="#4f3a25">— 퍼슈트 우체국 운영팀 올림</text>
+    <text x="350" y="205" text-anchor="end" font-family="cursive,serif" font-size="13" fill="#4f3a25">2026 · 봄날</text>
+    <!-- postmark circle -->
+    <g transform="translate(60, 175) rotate(-12)">
+      <circle r="36" fill="#f7efde" fill-opacity="0.7" stroke="#2f5d4f" stroke-width="2"/>
+      <text y="-6" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#2f5d4f">FUR-POST</text>
+      <text y="8" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2f5d4f">CLOSED</text>
+      <text y="20" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#2f5d4f">BETA</text>
+    </g>
+  </g>
+
+  <!-- Main text content (left) -->
+  <g>
+    <!-- pre-title -->
+    <text x="280" y="265" font-family="sans-serif" font-size="14" font-weight="700" fill="#b1322a" letter-spacing="5">F U R S U I T   C O N N E C T</text>
+
+    <!-- main title KR -->
+    <text x="280" y="330" font-family="serif" font-size="64" font-weight="700" fill="#2a1d12">퍼슈트 커넥트</text>
+
+    <!-- subtitle -->
+    <text x="280" y="385" font-family="serif" font-size="24" fill="#4f3a25">베타 창작자 초대장</text>
+
+    <!-- tagline -->
+    <text x="280" y="445" font-family="serif" font-size="20" fill="#4f3a25">스티커를 모으고, 주고받고,</text>
+    <text x="280" y="475" font-family="serif" font-size="20" fill="#4f3a25">일기장에 붙이고, SNS로 흘려보내는 곳.</text>
+  </g>
+
+  <!-- Bottom URL bar -->
+  <g>
+    <line x1="60" y1="540" x2="1140" y2="540" stroke="#503214" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="60" y="580" font-family="sans-serif" font-size="16" font-weight="700" fill="#2a1d12" letter-spacing="2">finkiefie.github.io</text>
+    <text x="1140" y="580" text-anchor="end" font-family="serif" font-size="15" fill="#4f3a25" font-style="italic">— 한국 퍼리·퍼슈트 팬덤을 위한 작은 우체국</text>
+  </g>
+
+  <!-- Red seal (bottom-right corner accent) -->
+  <g transform="translate(1080, 480) rotate(-12)">
+    <circle r="42" fill="#b1322a" fill-opacity="0.06" stroke="#b1322a" stroke-width="3"/>
+    <circle r="36" fill="none" stroke="#b1322a" stroke-width="1.2"/>
+    <text y="-5" text-anchor="middle" font-family="serif" font-size="20" font-weight="700" fill="#b1322a">초대</text>
+    <text y="14" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#b1322a" letter-spacing="2">INVITATION</text>
+  </g>
+</svg>
