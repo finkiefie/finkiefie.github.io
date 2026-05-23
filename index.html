@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://finkiefie.github.io/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 봉투와 도장 미감" />
+<meta property="og:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 편지와 도장 미감" />
 <meta property="og:locale" content="ko_KR" />
 <meta property="og:locale:alternate" content="en_US" />
 
@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="퍼슈트 커넥트 — 베타 창작자 초대장" />
 <meta name="twitter:description" content="우리만의 일기장에 캐릭터를 채우고, SNS로 흘려보내는 작은 우체국." />
 <meta name="twitter:image" content="https://finkiefie.github.io/og-image.png" />
-<meta name="twitter:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 봉투와 도장 미감" />
+<meta name="twitter:image:alt" content="퍼슈트 커넥트 베타 창작자 초대장 — 편지와 도장 미감" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -134,8 +134,8 @@
     margin-right: 10px;
   }
 
-  /* === ENVELOPE === */
-  .envelope {
+  /* === LETTER === */
+  .letter {
     position: relative;
     background: #f7efde;
     border: 1px solid rgba(80,50,20,.25);
@@ -148,7 +148,7 @@
     max-width: 420px;
     margin-left: auto;
   }
-  .envelope::before {
+  .letter::before {
     content: ""; position: absolute; inset: 0;
     background: repeating-linear-gradient(135deg, transparent 0 10px, rgba(177,50,42,.5) 10px 12px, transparent 12px 22px, rgba(47,93,79,.5) 22px 24px);
     padding: 6px;
@@ -159,20 +159,20 @@
     pointer-events: none;
     opacity: .8;
   }
-  .envelope .to {
+  .letter .to {
     font-family: "Gaegu", cursive;
     font-size: 18px; color: var(--ink);
     line-height: 1.5;
   }
-  .envelope .to b { color: var(--seal); font-weight: 700; }
-  .envelope .from {
+  .letter .to b { color: var(--seal); font-weight: 700; }
+  .letter .from {
     margin-top: 22px;
     text-align: right;
     font-family: "Gaegu", cursive;
     font-size: 15px;
     color: var(--ink-soft);
   }
-  .envelope .postmark {
+  .letter .postmark {
     position: absolute;
     bottom: -18px; left: 24px;
     width: 92px; height: 92px;
@@ -188,7 +188,7 @@
     line-height: 1.3;
     opacity: .85;
   }
-  .envelope .postmark span { font-size: 13px; letter-spacing: .1em; }
+  .letter .postmark span { font-size: 13px; letter-spacing: .1em; }
 
   /* === SECTIONS === */
   section { padding: 72px 0; position: relative; }
@@ -312,19 +312,19 @@
   }
   .stamp-mark.green { border-color: var(--stamp); color: var(--stamp); transform: rotate(7deg); }
 
-  /* === RITUALS === */
-  .rituals {
+  /* === THRILLS === */
+  .thrills {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
-  @media (max-width: 880px) { .rituals { grid-template-columns: 1fr; } }
-  .ritual {
+  @media (max-width: 880px) { .thrills { grid-template-columns: 1fr; } }
+  .thrill {
     background: #faf3e3;
     border: 1px solid rgba(80,50,20,.18);
     padding: 28px 24px;
     position: relative;
     box-shadow: 0 6px 18px var(--shadow);
   }
-  .ritual .ic {
+  .thrill .ic {
     width: 64px; height: 64px;
     margin-bottom: 14px;
     display: flex; align-items: center; justify-content: center;
@@ -333,10 +333,10 @@
     color: var(--seal);
     font-size: 30px;
   }
-  .ritual h3 { font-size: 20px; margin-bottom: 4px; }
-  .ritual .ko-sub { font-family: "Gaegu", cursive; color: var(--seal); margin-bottom: 12px; display: block; }
-  .ritual ul { margin: 8px 0 0; padding-left: 18px; }
-  .ritual li { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-soft); }
+  .thrill h3 { font-size: 20px; margin-bottom: 4px; }
+  .thrill .ko-sub { font-family: "Gaegu", cursive; color: var(--seal); margin-bottom: 12px; display: block; }
+  .thrill ul { margin: 8px 0 0; padding-left: 18px; }
+  .thrill li { margin-bottom: 6px; font-size: 14.5px; color: var(--ink-soft); }
 
   /* === TRUST === */
   .trust-list {
@@ -512,9 +512,9 @@
   .pullquote::before { content: "“"; margin-right: 8px; }
   .pullquote::after { margin-left: 8px; }
 
-  /* floating envelope animation */
+  /* floating letter animation */
   @keyframes float { 0%,100% { transform: rotate(-1.2deg) translateY(0); } 50% { transform: rotate(-1.2deg) translateY(-6px); } }
-  .envelope { animation: float 6s ease-in-out infinite; }
+  .letter { animation: float 6s ease-in-out infinite; }
 
   /* === BLUNT ANSWER === */
   .bluntly {
@@ -680,14 +680,14 @@
       <div class="hero-grid">
         <div>
           <div class="pre-title">처음 보는 캐릭터와의 작은 인사.</div>
-          <h1>오늘, 한 통의 봉투를<br/>띄워 보시겠어요?</h1>
+          <h1>오늘, 한 통의 편지를<br/>띄워 보시겠어요?</h1>
           <p class="lead" style="font-size: 1.15em; font-weight: 600; color: var(--seal); margin-bottom: 18px;">
             스티커 한 장이 곧 명함이 되는 우체국.<br/>
-            매일 한 통씩, 누군가의 첫 인사가 봉투에 담겨 도착합니다.
+            매일 한 통씩, 누군가의 첫 인사가 편지에 담겨 도착합니다.
           </p>
           <p class="lead">
             당신의 이야기가 누군가의 가장 소중한 일기 페이지에 머무를 수 있도록, 작은 우체국의 문을 엽니다.<br/><br/>
-            <em>퍼슈트 커넥트</em>는 인터넷의 수많은 피드 속에서 가볍게 소비되고 잊히는 그림 대신, 당신의 캐릭터를 한 장의 <b>「스티커」</b>로 만들어 <b>「봉투」</b>에 소중히 봉인하고, <b>「도장」</b>을 찍어 일기장에 정성껏 남기는 <b>우리만의 페이지</b>를 설계했습니다.<br/><br/>
+            <em>퍼슈트 커넥트</em>는 인터넷의 수많은 피드 속에서 가볍게 소비되고 잊히는 그림 대신, 당신의 캐릭터를 한 장의 <b>「스티커」</b>로 만들어 <b>「편지」</b>에 소중히 봉인하고, <b>「도장」</b>을 찍어 일기장에 정성껏 남기는 <b>우리만의 페이지</b>를 설계했습니다.<br/><br/>
             <b>상상해 보세요 —</b> 누군가는 당신의 스티커를 가만히 펼쳐 두고 한참을 들여다보다가, 사각거리는 종이 위에 자기 도장을 천천히 눌러 찍어 둘 것입니다. 그 잔잔한 페이지 위에서 당신의 캐릭터가 <b>얼마나 다정하게 머물고, 얼마나 소중히 간직되었으면 하는지를</b> — 우리는 오래 고민했습니다.
           </p>
           <a href="#bluntly-ko" class="btn">우체국이 드리는 약속 (창작자) →</a>
@@ -695,7 +695,7 @@
         </div>
 
         <div>
-          <div class="envelope">
+          <div class="letter">
             <div class="to">
               받는 분<br/>
               <b>창작자 및 퍼슈터 귀하</b><br/>
@@ -736,7 +736,7 @@
         <div class="bluntly-item">
           <span class="bluntly-num">01</span>
           <h3>새로운 팬과 만나는 우연의 우체통</h3>
-          <p><b>인기 작가든 신입 작가든, 봉투를 열었을 때 당신을 만날 확률은 똑같습니다.</b> 모든 스티커가 공동 풀에서 동등한 확률로 등장합니다. 인기 순위가 아닌 운명적인 만남을 통해 새로운 팬이 당신의 채널을 팔로우하는 가장 직접적인 통로입니다.</p>
+          <p><b>인기 작가든 신입 작가든, 편지를 열었을 때 당신을 만날 확률은 똑같습니다.</b> 모든 스티커가 공동 풀에서 동등한 확률로 등장합니다. 인기 순위가 아닌 운명적인 만남을 통해 새로운 팬이 당신의 채널을 팔로우하는 가장 직접적인 통로입니다.</p>
         </div>
 
         <div class="bluntly-item">
@@ -823,14 +823,14 @@
       <div class="memory-grid">
         <article class="memory">
           <span class="memory-tag">「오늘은 누가 띄웠을까」</span>
-          <h3>매일 우체통을 열어 보는 작은 의례.</h3>
-          <p>매일 우체통에 도착하는 봉투를 열어 볼 수 있습니다. 그 안에는 모르는 누군가의 마음과, 한 번도 본 적 없는 캐릭터가 담겨 있습니다.</p>
+          <h3>매일 우체통을 열어 보는 작은 설렘.</h3>
+          <p>매일 우체통에 도착하는 편지를 열어 볼 수 있습니다. 그 안에는 모르는 누군가의 마음과, 한 번도 본 적 없는 캐릭터가 담겨 있습니다.</p>
         </article>
 
         <article class="memory">
           <span class="memory-tag alt">「운명의 다섯 장」</span>
           <h3>뒷면으로 가만히 펼쳐진 다섯 장 — 그중 단 한 장의 선택.</h3>
-          <p>모르는 누군가가 봉투에 담아 띄운 스티커 다섯 장이 도착하면, 그중 단 한 장만 골라 받을 수 있습니다. 망설임 그 자체가 즐거움이 되는 순간입니다.</p>
+          <p>모르는 누군가가 편지에 담아 띄운 스티커 다섯 장이 도착하면, 그중 단 한 장만 골라 받을 수 있습니다. 망설임 그 자체가 즐거움이 되는 순간입니다.</p>
         </article>
 
         <article class="memory">
@@ -841,8 +841,8 @@
 
         <article class="memory">
           <span class="memory-tag alt">「운명의 매칭」</span>
-          <h3>한참을 기다리던 그 한 장이, 어느 날 모르는 봉투에서.</h3>
-          <p>「위시 게시판」에 찾고 있는 스티커를 적어 두면, 시간이 흘러 모르는 누군가의 손을 거쳐 그 한 장이 봉투로 도착할 수 있습니다.</p>
+          <h3>한참을 기다리던 그 한 장이, 어느 날 모르는 편지에서.</h3>
+          <p>「위시 게시판」에 찾고 있는 스티커를 적어 두면, 시간이 흘러 모르는 누군가의 손을 거쳐 그 한 장이 편지로 도착할 수 있습니다.</p>
         </article>
 
         <article class="memory wide">
@@ -860,7 +860,7 @@
     </div>
   </section>
 
-  <!-- THREE RITUALS -->
+  <!-- THREE THRILLS -->
   <section style="background: rgba(255,255,255,.25);">
     <div class="wrap">
       <div class="section-head">
@@ -869,8 +869,8 @@
         <p>모든 모드는 "퍼슈트 우체국 + 교환 일기장"이라는 페이지 안에서 완성됩니다.</p>
       </div>
 
-      <div class="rituals">
-        <div class="ritual">
+      <div class="thrills">
+        <div class="thrill">
           <div class="ic">✉</div>
           <h3>Friend Trade</h3>
           <span class="ko-sub hand">— 함께 채우는 일기장 —</span>
@@ -881,23 +881,23 @@
           </ul>
         </div>
 
-        <div class="ritual">
+        <div class="thrill">
           <div class="ic">✦</div>
           <h3>Wonder Box</h3>
           <span class="ko-sub hand">— 운명의 선택 —</span>
           <ul>
-            <li>봉투를 우체통에 넣고 기다리는 설렘</li>
+            <li>편지를 우체통에 넣고 기다리는 설렘</li>
             <li>뒷면의 스티커 중 단 하나를 고르는 운명적 기록</li>
             <li>당신의 캐릭터가 예상치 못한 누군가에게 배달되는 과정</li>
           </ul>
         </div>
 
-        <div class="ritual">
+        <div class="thrill">
           <div class="ic">⌬</div>
           <h3>Room Trade</h3>
           <span class="ko-sub hand">— 다 함께 여는 우체국 —</span>
           <ul>
-            <li>최대 20명이 모여 동시에 봉투를 열고 서로의 일기장을 확인하는, <b>조용하지만 설레는 연결의 순간</b></li>
+            <li>최대 20명이 모여 동시에 편지를 열고 서로의 일기장을 확인하는, <b>조용하지만 설레는 연결의 순간</b></li>
             <li>모두의 일기장에 같은 추억이 페이지로 새겨집니다</li>
           </ul>
         </div>
@@ -933,7 +933,7 @@
 
       <ul class="trust-list">
         <li><b>채팅 없음</b> · 자유 텍스트 대신 다정한 이모티콘 팔레트만 사용 가능</li>
-        <li><b>본명·돈·외부 약속, 봉투 안에 없음</b> · 친구 코드 8자리만, 현금 거래·외부 SNS·전화·이메일 모두 차단</li>
+        <li><b>본명·돈·외부 약속, 편지 안에 없음</b> · 친구 코드 8자리만, 현금 거래·외부 SNS·전화·이메일 모두 차단</li>
         <li><b>초대제 검증</b> · 운영자가 직접 검증한 창작자만 등재</li>
         <li><b>한 번 닫힌 문은 다시 열리지 않습니다</b> · 신고·차단 영구 반영</li>
         <li><b>숫자로 줄 세우지 않습니다</b> · 인기 순위 비공개, 신입도 베테랑도 같은 출발선</li>
@@ -1003,7 +1003,7 @@
         <div class="stop">
           <span class="when">PHASE 3 · 확장</span>
           <h3>일본 → 글로벌 / 한·영·일 다국어</h3>
-          <p>Unity Localization 기반 한/영/일 동시 지원. 시즌 운영 이벤트(우표·스티커·봉투 일방 배포). AR 포토 모드·가상 컨벤션 도입 검토.</p>
+          <p>Unity Localization 기반 한/영/일 동시 지원. 시즌 운영 이벤트(우표·스티커·편지 일방 배포). AR 포토 모드·가상 컨벤션 도입 검토.</p>
         </div>
       </div>
     </div>
@@ -1027,19 +1027,19 @@
       </details>
       <details>
         <summary>Q. 다른 작가의 캐릭터와 한 풀에 섞이나요?</summary>
-        <p>네. 모든 작가의 스티커는 <b>하나의 공동 풀</b>에 들어가며, 봉투를 열 때 누구의 스티커가 나올지는 <b>완전히 동등한 확률</b>로 결정됩니다. 이것이 의도된 핵심 구조입니다 — 인기 가산점이나 노출 가중치 없이, 모든 작가가 같은 출발선에 서고, 사용자는 우연히 만난 누군가의 캐릭터에 새로 빠질 기회를 얻습니다. (단, Verified 마크와 발행자 정보는 모든 스티커에 명확히 표시됩니다.)</p>
+        <p>네. 모든 작가의 스티커는 <b>하나의 공동 풀</b>에 들어가며, 편지를 열 때 누구의 스티커가 나올지는 <b>완전히 동등한 확률</b>로 결정됩니다. 이것이 의도된 핵심 구조입니다 — 인기 가산점이나 노출 가중치 없이, 모든 작가가 같은 출발선에 서고, 사용자는 우연히 만난 누군가의 캐릭터에 새로 빠질 기회를 얻습니다. (단, Verified 마크와 발행자 정보는 모든 스티커에 명확히 표시됩니다.)</p>
       </details>
       <details>
         <summary>Q. 창작자에게 돌아가는 몫은 어떻게 정해지나요?</summary>
-        <p>베타 동안에는 어떤 결제도 발생하지 않습니다. 사용자는 미니게임을 즐기고 매일 출석하면서 자연스럽게 모은 것만으로 봉투를 열어봅니다. 정식으로 문을 여는 단계에 이르면, 받은 사랑을 창작자와 나누는 구조를 도입합니다. 다만 모든 작가가 같은 풀에 동등 확률로 등장하기 때문에, "사랑을 어떻게 헤아리고 어떻게 나눌지"는 <b>베타 운영 중 정기 협의 자리를 만들어 함께 다듬어 가며, 정식 시작 전 모든 분과 합의된 조건을 명문화한 계약서를 별도 송부드립니다.</b> 베타에 함께해 주신 분들이 그 자리의 첫 협의 대상입니다.</p>
+        <p>베타 동안에는 어떤 결제도 발생하지 않습니다. 사용자는 미니게임을 즐기고 매일 출석하면서 자연스럽게 모은 것만으로 편지를 열어봅니다. 정식으로 문을 여는 단계에 이르면, 받은 사랑을 창작자와 나누는 구조를 도입합니다. 다만 모든 작가가 같은 풀에 동등 확률로 등장하기 때문에, "사랑을 어떻게 헤아리고 어떻게 나눌지"는 <b>베타 운영 중 정기 협의 자리를 만들어 함께 다듬어 가며, 정식 시작 전 모든 분과 합의된 조건을 명문화한 계약서를 별도 송부드립니다.</b> 베타에 함께해 주신 분들이 그 자리의 첫 협의 대상입니다.</p>
       </details>
       <details>
         <summary>Q. 이미 인기 있는 작가인데, 동등 확률 풀에서 손해 보는 것 아닌가요?</summary>
-        <p>이 우체국이 다루는 것은 <b>「아직 당신을 모르는 사람과의 우연한 첫 만남」</b>입니다. 인기 작가가 가진 기존 팬덤은 SNS·웹에서 그대로 유지되며, 우체국 안의 동등 확률은 그 팬덤을 빼앗지 않습니다. 대신 알고리즘·해시태그에 묻혀 닿지 못했을 새로운 팬에게 당신의 캐릭터가 우연히 봉투로 도착합니다. 즉 기존 팬덤은 그대로 두고, 새로운 만남의 길 하나가 조용히 더해집니다. 인기 작가에게도 첫 만남은 늘 어려운 일이기에, 동등 확률은 손해가 아니라 새로운 만남이 시작될 수 있는 작은 입구입니다.</p>
+        <p>이 우체국이 다루는 것은 <b>「아직 당신을 모르는 사람과의 우연한 첫 만남」</b>입니다. 인기 작가가 가진 기존 팬덤은 SNS·웹에서 그대로 유지되며, 우체국 안의 동등 확률은 그 팬덤을 빼앗지 않습니다. 대신 알고리즘·해시태그에 묻혀 닿지 못했을 새로운 팬에게 당신의 캐릭터가 우연히 편지로 도착합니다. 즉 기존 팬덤은 그대로 두고, 새로운 만남의 길 하나가 조용히 더해집니다. 인기 작가에게도 첫 만남은 늘 어려운 일이기에, 동등 확률은 손해가 아니라 새로운 만남이 시작될 수 있는 작은 입구입니다.</p>
       </details>
       <details>
         <summary>Q. 자유 채팅이 없다면, 사용자가 외로워하지 않을까요?</summary>
-        <p>의도된 설계입니다. 자유 채팅 대신 <b>「도장·우표·이모티콘 팔레트」</b>로 정성을 전합니다. 두 가지 이유 때문입니다 — (1) 무례한 평가·서열화·사기를 원천 차단하기 위해, (2) 익명 우편물의 정서를 그대로 보존하기 위해. SNS 챗처럼 즉각적이지는 않지만, 한 번 받은 봉투의 무게감이 그만큼 더 깊습니다. 더 깊이 대화하고 싶은 사용자는 SNS 공유를 통해 작가의 채널로 자연스럽게 이동할 수 있습니다 — 그 흐름이 곧 창작자에게는 새로운 팬이 찾아오는 길이 됩니다.</p>
+        <p>의도된 설계입니다. 자유 채팅 대신 <b>「도장·우표·이모티콘 팔레트」</b>로 정성을 전합니다. 두 가지 이유 때문입니다 — (1) 무례한 평가·서열화·사기를 원천 차단하기 위해, (2) 익명 우편물의 정서를 그대로 보존하기 위해. SNS 챗처럼 즉각적이지는 않지만, 한 번 받은 편지의 무게감이 그만큼 더 깊습니다. 더 깊이 대화하고 싶은 사용자는 SNS 공유를 통해 작가의 채널로 자연스럽게 이동할 수 있습니다 — 그 흐름이 곧 창작자에게는 새로운 팬이 찾아오는 길이 됩니다.</p>
       </details>
       <details>
         <summary>Q. AI로 생성한 캐릭터도 가능한가요?</summary>
@@ -1058,8 +1058,8 @@
         <p>베타 기간(2026년)에는 운영자가 직접 검증한 <b>창작자만</b> 등재됩니다. 일반 사용자 가입은 정식 시작 시점(로드맵 PHASE 2)에 함께 열리며, <b>사전 알림을 신청해 두시면</b> 문이 열리는 첫날 가장 먼저 안내드립니다.</p>
       </details>
       <details>
-        <summary>Q. 정식 시작 후, 봉투는 어떻게 얻나요?</summary>
-        <p>매일 출석하실 때마다 <b>무료 봉투가 자연스럽게 충전</b>됩니다 (12시간 쿨다운, 최대 2개 누적). 결제 없이도 충분히 즐기실 수 있도록 설계되었으며, 출석만으로 모으실 수 있도록 운영됩니다.</p>
+        <summary>Q. 정식 시작 후, 편지는 어떻게 얻나요?</summary>
+        <p>매일 출석하실 때마다 <b>무료 편지가 자연스럽게 충전</b>됩니다 (12시간 쿨다운, 최대 2개 누적). 결제 없이도 충분히 즐기실 수 있도록 설계되었으며, 출석만으로 모으실 수 있도록 운영됩니다.</p>
       </details>
     </div>
   </section>
@@ -1078,7 +1078,7 @@
       <div style="max-width: 560px; margin: 56px auto 0; padding-top: 32px; border-top: 1px dashed rgba(80,50,20,.2); text-align: center;">
         <p style="font-size: 15px; color: var(--ink); margin-bottom: 18px;">
           <b>창작자가 아니어도 괜찮습니다.</b><br/>
-          사용자 우체통은 정식 시작과 함께 열립니다. 문이 열리는 첫날, 가장 먼저 봉투 한 통을 받아 보고 싶다면 —
+          사용자 우체통은 정식 시작과 함께 열립니다. 문이 열리는 첫날, 가장 먼저 편지 한 통을 받아 보고 싶다면 —
         </p>
         <a href="mailto:finkiefie@gmail.com?subject=%5B%ED%8D%BC%EC%8A%88%ED%8A%B8%20%EC%BB%A4%EB%84%A5%ED%8A%B8%5D%20%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%82%AC%EC%A0%84%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%0A%0A%EC%82%AC%EC%9A%A9%EC%9E%90%20%EC%82%AC%EC%A0%84%20%EC%95%8C%EB%A6%BC%EC%9D%84%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4.%0A%0A%E2%80%A2%20%EB%8B%89%EB%84%A4%EC%9E%84(%EC%84%A0%ED%83%9D)%3A%20%0A%E2%80%A2%20SNS%20%EC%B1%84%EB%84%90(%EC%84%A0%ED%83%9D)%3A%20" class="btn outline">사전 알림 신청 (사용자) →</a>
       </div>
@@ -1113,14 +1113,14 @@
       <div class="hero-grid">
         <div>
           <div class="pre-title">A small greeting with a character you've never seen.</div>
-          <h1>Today, would you like<br/>to send an envelope?</h1>
+          <h1>Today, would you like<br/>to send an letter?</h1>
           <p class="lead" style="font-size: 1.15em; font-weight: 600; color: var(--seal); margin-bottom: 18px;">
             A post office where a sticker becomes a name card.<br/>
-            One envelope a day — someone's first hello, quietly sealed inside.
+            One letter a day — someone's first hello, quietly sealed inside.
           </p>
           <p class="lead">
             We open the door of a small post office, so that your story may find a place to rest on someone's most precious diary page.<br/><br/>
-            <em>Fursuit Connect</em> — instead of leaving your art to be consumed and forgotten amid endless feeds, we designed <b>a page of our own</b>: your character made into a single <b>「sticker」</b>, sealed carefully in an <b>「envelope」</b>, pressed with a <b>「seal」</b>, and recorded into a diary with the greatest care.<br/><br/>
+            <em>Fursuit Connect</em> — instead of leaving your art to be consumed and forgotten amid endless feeds, we designed <b>a page of our own</b>: your character made into a single <b>「sticker」</b>, sealed carefully in an <b>「letter」</b>, pressed with a <b>「seal」</b>, and recorded into a diary with the greatest care.<br/><br/>
             <b>Imagine —</b> someone will leave your sticker open and gaze at it for a long while, then slowly press their own seal onto the rustling paper. On that quiet page — <b>how dearly your character should be welcomed, and kept</b> — we have thought about it for a very long time.
           </p>
           <a href="#bluntly-en" class="btn">The post office's promise (for creators) →</a>
@@ -1128,7 +1128,7 @@
         </div>
 
         <div>
-          <div class="envelope">
+          <div class="letter">
             <div class="to">
               To<br/>
               <b>Creators &amp; Fursuiters</b><br/>
@@ -1169,7 +1169,7 @@
         <div class="bluntly-item">
           <span class="bluntly-num">01</span>
           <h3>A chance mailbox where new fans arrive</h3>
-          <p><b>Whether you're a star artist or a newcomer, the odds someone meets you when they open an envelope are exactly the same.</b> Every sticker appears from the common pool at equal probability. Not popularity ranking but a fated encounter — the most direct path for a new fan to follow your channel.</p>
+          <p><b>Whether you're a star artist or a newcomer, the odds someone meets you when they open an letter are exactly the same.</b> Every sticker appears from the common pool at equal probability. Not popularity ranking but a fated encounter — the most direct path for a new fan to follow your channel.</p>
         </div>
 
         <div class="bluntly-item">
@@ -1256,8 +1256,8 @@
       <div class="memory-grid">
         <article class="memory">
           <span class="memory-tag">「Who sent it today?」</span>
-          <h3>A small daily ritual of opening the mailbox.</h3>
-          <p>Every day you can open the envelopes that have arrived in your mailbox. Inside lies the heart of someone you've never met, alongside a character you've never seen before.</p>
+          <h3>A small daily thrill of opening the mailbox.</h3>
+          <p>Every day you can open the letters that have arrived in your mailbox. Inside lies the heart of someone you've never met, alongside a character you've never seen before.</p>
         </article>
 
         <article class="memory">
@@ -1274,8 +1274,8 @@
 
         <article class="memory">
           <span class="memory-tag alt">「The Fated Matching」</span>
-          <h3>The single sticker you'd waited for — arriving one day from an unknown envelope.</h3>
-          <p>When you post a sticker you've been searching for on the 「Wish Post」, that single sticker may, in time, travel through a stranger's hands and arrive in an envelope to you.</p>
+          <h3>The single sticker you'd waited for — arriving one day from an unknown letter.</h3>
+          <p>When you post a sticker you've been searching for on the 「Wish Post」, that single sticker may, in time, travel through a stranger's hands and arrive in an letter to you.</p>
         </article>
 
         <article class="memory wide">
@@ -1293,7 +1293,7 @@
     </div>
   </section>
 
-  <!-- THREE RITUALS -->
+  <!-- THREE THRILLS -->
   <section style="background: rgba(255,255,255,.25);">
     <div class="wrap">
       <div class="section-head">
@@ -1302,8 +1302,8 @@
         <p>Every mode is completed inside one page: "The Fursuit Post + Exchange Diary."</p>
       </div>
 
-      <div class="rituals">
-        <div class="ritual">
+      <div class="thrills">
+        <div class="thrill">
           <div class="ic">✉</div>
           <h3>Friend Trade</h3>
           <span class="ko-sub hand">— A Diary We Fill Together —</span>
@@ -1314,23 +1314,23 @@
           </ul>
         </div>
 
-        <div class="ritual">
+        <div class="thrill">
           <div class="ic">✦</div>
           <h3>Wonder Box</h3>
           <span class="ko-sub hand">— A Fated Choice —</span>
           <ul>
-            <li>The thrill of dropping an envelope into the mailbox and waiting</li>
+            <li>The thrill of dropping an letter into the mailbox and waiting</li>
             <li>A fated record — choosing just one from the face-down stickers</li>
             <li>The process of your character being delivered to someone unexpected</li>
           </ul>
         </div>
 
-        <div class="ritual">
+        <div class="thrill">
           <div class="ic">⌬</div>
           <h3>Room Trade</h3>
           <span class="ko-sub hand">— A Post Office Opened Together —</span>
           <ul>
-            <li>Up to 20 people gather, opening envelopes at once and reading each other's diaries — <b>a quiet but thrilling moment of connection</b></li>
+            <li>Up to 20 people gather, opening letters at once and reading each other's diaries — <b>a quiet but thrilling moment of connection</b></li>
             <li>The same memory is etched into every diary as a page</li>
           </ul>
         </div>
@@ -1366,7 +1366,7 @@
 
       <ul class="trust-list">
         <li><b>No chat</b> · only a gentle emoji palette instead of free text</li>
-        <li><b>No real name, no cash, no off-platform contact</b> · only an 8-digit Friend Code — cash trades, external SNS, phone, and email cannot enter the envelope</li>
+        <li><b>No real name, no cash, no off-platform contact</b> · only an 8-digit Friend Code — cash trades, external SNS, phone, and email cannot enter the letter</li>
         <li><b>Invite-only verification</b> · only creators directly verified by the operator are entered</li>
         <li><b>A door once closed does not open again</b> · reports &amp; blocks held forever</li>
         <li><b>We do not line characters up by number</b> · no popularity rankings; newcomer or veteran, the same starting line</li>
@@ -1436,7 +1436,7 @@
         <div class="stop">
           <span class="when">PHASE 3 · EXPANSION</span>
           <h3>Japan → global · KO/EN/JA multilingual</h3>
-          <p>Unity Localization-based simultaneous KO/EN/JA support. Seasonal operator events (stamp/sticker/envelope distributions). AR Photo Mode and Virtual Convention under review.</p>
+          <p>Unity Localization-based simultaneous KO/EN/JA support. Seasonal operator events (stamp/sticker/letter distributions). AR Photo Mode and Virtual Convention under review.</p>
         </div>
       </div>
     </div>
@@ -1460,19 +1460,19 @@
       </details>
       <details>
         <summary>Q. Will my character be mixed in a pool with other artists'?</summary>
-        <p>Yes. Every artist's stickers join a <b>single common pool</b>, and which sticker appears when an envelope is opened is determined at <b>exactly equal probability</b>. This is the intended core structure — no popularity bonuses, no exposure weights, every artist on the same starting line, and every user given the chance to suddenly fall for a character they had never seen before. (That said, the Verified mark and issuer info are clearly attached to every sticker.)</p>
+        <p>Yes. Every artist's stickers join a <b>single common pool</b>, and which sticker appears when an letter is opened is determined at <b>exactly equal probability</b>. This is the intended core structure — no popularity bonuses, no exposure weights, every artist on the same starting line, and every user given the chance to suddenly fall for a character they had never seen before. (That said, the Verified mark and issuer info are clearly attached to every sticker.)</p>
       </details>
       <details>
         <summary>Q. How is the creator's share determined?</summary>
-        <p>During the beta no payment takes place at all. Users gather coins naturally through the minigame and daily attendance, and open envelopes with those alone. At the official opening, we introduce a structure that shares the affection your stickers received with you, the creator. Because every artist sits in the same pool at equal probability, the question of "what counts as love and how we share it" is one we will <b>shape together through regular conversations during the beta, and before the official opening every participating creator will receive a formal, written contract reflecting what we agreed on.</b> Beta creators sit at the front of that conversation.</p>
+        <p>During the beta no payment takes place at all. Users gather coins naturally through the minigame and daily attendance, and open letters with those alone. At the official opening, we introduce a structure that shares the affection your stickers received with you, the creator. Because every artist sits in the same pool at equal probability, the question of "what counts as love and how we share it" is one we will <b>shape together through regular conversations during the beta, and before the official opening every participating creator will receive a formal, written contract reflecting what we agreed on.</b> Beta creators sit at the front of that conversation.</p>
       </details>
       <details>
         <summary>Q. I already have a popular following — won't I lose out in an equal-probability pool?</summary>
-        <p>What this post office handles is <b>"a chance first encounter with someone who doesn't yet know you."</b> Your existing fandom stays exactly where it is — on social media, on your website — and the equal-probability pool inside the post office does not take that away. What it does is deliver your character, by chance, in an envelope to a new fan whom hashtags and algorithms would never have reached. Your existing fandom remains untouched; one new path of encounter is quietly added. First encounters are difficult even for popular artists, and equal probability is not a loss but a small new doorway for a fresh first meeting.</p>
+        <p>What this post office handles is <b>"a chance first encounter with someone who doesn't yet know you."</b> Your existing fandom stays exactly where it is — on social media, on your website — and the equal-probability pool inside the post office does not take that away. What it does is deliver your character, by chance, in an letter to a new fan whom hashtags and algorithms would never have reached. Your existing fandom remains untouched; one new path of encounter is quietly added. First encounters are difficult even for popular artists, and equal probability is not a loss but a small new doorway for a fresh first meeting.</p>
       </details>
       <details>
         <summary>Q. Without free chat, won't users feel lonely?</summary>
-        <p>The design is intentional. Instead of free chat, we use a <b>palette of seals, stamps, and emoticons</b> to carry sincerity. Two reasons drive this choice: (1) to block rude evaluations, ranking, and scams at the source; (2) to preserve the feeling of anonymous mail. It is not as immediate as SNS chat, but each envelope received carries that much more weight. A user who wants a deeper conversation can move naturally to the creator's channel through SNS share — and that flow becomes, for the creator, a new fan inflow.</p>
+        <p>The design is intentional. Instead of free chat, we use a <b>palette of seals, stamps, and emoticons</b> to carry sincerity. Two reasons drive this choice: (1) to block rude evaluations, ranking, and scams at the source; (2) to preserve the feeling of anonymous mail. It is not as immediate as SNS chat, but each letter received carries that much more weight. A user who wants a deeper conversation can move naturally to the creator's channel through SNS share — and that flow becomes, for the creator, a new fan inflow.</p>
       </details>
       <details>
         <summary>Q. Are AI-generated characters acceptable?</summary>
@@ -1491,8 +1491,8 @@
         <p>During the beta period (2026), only <b>creators</b> directly verified by the operator are entered. General visitor sign-ups open with the official launch (Roadmap PHASE 2). If you <b>sign up for the pre-launch notification</b>, we'll let you know first on opening day.</p>
       </details>
       <details>
-        <summary>Q. After the official launch, how do I get envelopes?</summary>
-        <p>Each day you log in, <b>a free envelope quietly recharges</b> (12-hour cooldown, up to 2 stacked). The design lets you enjoy fully without any payment — daily attendance alone is enough to keep collecting.</p>
+        <summary>Q. After the official launch, how do I get letters?</summary>
+        <p>Each day you log in, <b>a free letter quietly recharges</b> (12-hour cooldown, up to 2 stacked). The design lets you enjoy fully without any payment — daily attendance alone is enough to keep collecting.</p>
       </details>
     </div>
   </section>
@@ -1511,7 +1511,7 @@
       <div style="max-width: 560px; margin: 56px auto 0; padding-top: 32px; border-top: 1px dashed rgba(80,50,20,.2); text-align: center;">
         <p style="font-size: 15px; color: var(--ink); margin-bottom: 18px;">
           <b>Not a creator? That's okay.</b><br/>
-          The visitor's mailbox opens with the official launch. If you'd like to be the first to receive an envelope on opening day —
+          The visitor's mailbox opens with the official launch. If you'd like to be the first to receive an letter on opening day —
         </p>
         <a href="mailto:finkiefie@gmail.com?subject=%5BFursuit%20Connect%5D%20Visitor%20Pre-launch%20Notification&body=Hello%2C%0A%0AI%27d%20like%20to%20sign%20up%20for%20the%20visitor%20pre-launch%20notification.%0A%0A%E2%80%A2%20Nickname%20(optional)%3A%20%0A%E2%80%A2%20SNS%20channel%20(optional)%3A%20" class="btn outline">Sign up for pre-launch notice (for visitors) →</a>
       </div>
